@@ -4,7 +4,7 @@ export const siteEn: SiteContent = {
   seo: {
     title: "58begin",
     description:
-      "58begin.com — a personal brand site with featured work, content, products, tools, and contact entry points."
+      "58begin.com — official site for a personal brand and product matrix: featured work, content, products & services, tools, and contact entry points."
   },
   nav: {
     brand: "58begin",
@@ -12,7 +12,7 @@ export const siteEn: SiteContent = {
       { id: "about", label: "About" },
       { id: "featured", label: "Featured" },
       { id: "content", label: "Content" },
-      { id: "products", label: "Products" },
+      { id: "products", label: "Products & Services" },
       { id: "tools", label: "Tools" },
       { id: "contact", label: "Contact" }
     ]
@@ -21,26 +21,26 @@ export const siteEn: SiteContent = {
     kicker: "Hi, I'm",
     title: "58begin",
     subtitle:
-      "Build a long-term business with clear positioning, reusable content assets, and a productized offer stack.",
-    primaryCta: { text: "Explore products", href: "#products" },
-    secondaryCta: { text: "See featured work", href: "#featured" }
+      "｜A new chapter for an old soul｜Starting a venture at 58. A not-so-famous product manager, a seasoned hardware veteran.",
+    primaryCta: { text: "View products & services", href: "#products" },
+    secondaryCta: { text: "Explore featured work", href: "#featured" }
   },
   metrics: [
-    { label: "Students", value: "30,000+" },
-    { label: "Followers", value: "1,500,000+" },
-    { label: "Rating", value: "9.2/10" }
+    { label: "Invention patents", value: "5" },
+    { label: "Projects delivered", value: "11" },
+    { label: "Satisfaction", value: "9.3/10" }
   ],
   about: {
     title: "About 58begin",
     paragraphs: [
-      "This is the official home for 58begin. Get a fast overview of who I am, what I do, and how to start working together.",
-      "I believe clear communication, compounding content assets, and productized delivery are the core levers for long-term growth."
+      "This is the official site for 58begin. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together.",
+      "I believe: the reason something feels impossible is simply because you haven't done it yet."
     ],
     highlights: [
-      "Positioning & messaging",
-      "Content systems & growth",
-      "Productization",
-      "AI leverage"
+      "Hardware positioning",
+      "Break down product requirements",
+      "Close the business loop",
+      "Leverage AI"
     ]
   },
   featured: {
@@ -48,21 +48,22 @@ export const siteEn: SiteContent = {
     items: [
       {
         id: "book-1",
-        title: "The Passion Business Playbook",
+        title: "Soil Tension Sensor ZL202211359507.7",
         description:
-          "A practical guide to building a personal brand and turning your expertise into products.",
-        ctaText: "Learn more",
+          "Uses soil tension as a core indicator of plants’ water uptake capacity. By continuously monitoring root-zone moisture dynamics with a low-cost sensor, it enables a precise shift from experience-based irrigation to on-demand irrigation, providing critical data infrastructure for smart agriculture.",
+        ctaText: "Learn & buy",
         ctaHref: "https://example.com"
       }
     ]
   },
   findMeOn: {
-    title: "Find me on",
+    title: "Find me here",
     items: [
       { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕" },
       { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵" },
       { id: "x", label: "X.com", href: "https://example.com", icon: "🐦" },
-      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶" }
+      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶" },
+      { id: "bilibili", label: "Bilibili", href: "https://example.com", icon: "📺" }
     ]
   },
   products: {
@@ -70,22 +71,23 @@ export const siteEn: SiteContent = {
     groups: [
       {
         id: "courses",
-        title: "Programs",
+        title: "Courses",
         items: [
           {
             id: "creator-bootcamp",
             title: "Creator Bootcamp",
-            description: "Build your personal brand and a sustainable online business.",
-            tag: "Program",
+            description:
+              "Build a personal brand from scratch and set up a sustainable online business.",
+            tag: "Course",
             ctaText: "View details",
             ctaHref: "https://example.com"
           },
           {
             id: "ai-solo",
-            title: "AI Solopreneur Intensive",
+            title: "AI Solopreneur Practicum",
             description:
-              "Multiply your output with AI tools and build a one-person company.",
-            tag: "Program",
+              "Amplify efficiency with AI tools and create outsized value as a one-person company.",
+            tag: "Course",
             ctaText: "View details",
             ctaHref: "https://example.com"
           }
@@ -93,15 +95,15 @@ export const siteEn: SiteContent = {
       },
       {
         id: "partnership",
-        title: "Partnerships",
+        title: "Business partnerships",
         items: [
           {
             id: "brand",
             title: "Brand Partnerships",
             description:
-              "Open to interviews, sponsored videos, and content collaborations.",
-            tag: "Business",
-            ctaText: "Get in touch",
+              "Reach a high-quality audience. Open to interviews, sponsored videos, and co-created content collaborations.",
+            tag: "Partnership",
+            ctaText: "Submit partnership inquiry",
             ctaHref: "#contact"
           }
         ]
@@ -109,37 +111,46 @@ export const siteEn: SiteContent = {
     ]
   },
   tools: {
-    title: "Tools",
+    title: "Tools & Projects",
     items: [
       {
         id: "tool-1",
         title: "CoverMagic",
         type: "Web App",
-        description: "Generate platform-ready thumbnails in seconds.",
+        description:
+          "Enter a title and style to generate platform-ready cover images in one click.",
+        href: "https://example.com"
+      },
+      {
+        id: "tool-2",
+        title: "X Reply Helper",
+        type: "Chrome Extension",
+        description: "Helps you generate more natural replies in the other person's language.",
         href: "https://example.com"
       }
     ]
   },
   contact: {
     title: "Contact",
-    description: "For programs, consulting, or partnerships, reach out via email or the form.",
+    description:
+      "If you'd like to inquire about courses or discuss partnerships, feel free to reach out via the channels below.",
     email: "hello@58begin.com",
-    wechatLabel: "WeChat",
+    wechatLabel: "Scan to add WeChat",
     form: {
-      title: "Inquiry form",
+      title: "Partnership / booking form",
       nameLabel: "Name",
       emailLabel: "Email",
       wechatLabel: "WeChat",
-      companyLabel: "Company",
+      companyLabel: "Company / organization",
       intentLabel: "Intent",
-      messageLabel: "Message",
+      messageLabel: "Additional info",
       submitText: "Submit",
       successText: "Received. I will get back to you soon.",
       errorText: "Failed to submit. Please try again later or email me directly.",
       intents: [
-        { value: "course", label: "Program" },
-        { value: "consulting", label: "Consulting" },
-        { value: "partnership", label: "Partnership" },
+        { value: "course", label: "Course inquiry" },
+        { value: "consulting", label: "Consulting / service" },
+        { value: "partnership", label: "Business partnership" },
         { value: "other", label: "Other" }
       ]
     }
@@ -149,19 +160,28 @@ export const siteEn: SiteContent = {
     items: [
       {
         slug: "start-with-positioning",
-        title: "Start with a one-line positioning statement",
+        title: "Start with a one-line positioning: let users understand you in 10 seconds",
         excerpt:
-          "Positioning is not a slogan. It's a default choice in a specific audience's mind. Here's a practical template.",
+          "Positioning is not a slogan. It's your “default option” in the mind of a specific audience. This article gives you a copy-ready structure and a self-checklist.",
         date: "2026-06-06",
         readTime: "6 min",
         tags: ["Positioning", "Messaging"],
-        body: `## A simple template\n\n> I help {who} achieve {result} in {context} using {method}.\n\n## Next step\n\nWrite your version and ask 3 target users to repeat it back to you.`
+        body: `## Why a one-line positioning drives conversion\n\nWhen users land on your homepage for the first time, they won't “patiently understand you”. They will quickly decide: are you what I need?\n\n## One-line positioning structure\n\n> I help {a certain group of people}, use {a method}, in {a context} to achieve {a measurable result}.\n\n## Closing\n\nWrite your one-line positioning, then ask 3 target users to repeat it back to you. Check whether what they repeat is consistent.`
+      },
+      {
+        slug: "content-asset-system",
+        title: "Content as assets: turn one output into long-term compounding",
+        excerpt:
+          "The value of content isn't just today's views. It's whether it can be searched, reused, and recombined—eventually becoming a sustainable entry point for products.",
+        date: "2026-06-06",
+        readTime: "8 min",
+        tags: ["Content", "Growth"],
+        body: `## Three levels of content assets\n\n- Instant content: peaks at publish time\n- Searchable content: brings steady traffic via search\n- Composable content: becomes modules for courses, tools, or reports\n\n## A simple method\n\nArchive your past content by “problem”, not by “platform”.`
       }
     ]
   },
   privacy: {
-    title: "Privacy",
-    body: `## What we collect\n\n- Usage data (page views, clicks, language, section exposure).\n- Form data you submit (name, email, WeChat, company, intent, message).\n\n## Why\n\n- To respond to your inquiry.\n- To improve the site.\n\n## Contact\n\nEmail us to request access, correction, or deletion of your data.\n`
+    title: "Privacy Policy",
+    body: `## What data we collect\n\n- Usage data: page visits, language switching, section exposure and clicks (for experience optimization and analytics).\n- Form data: when you submit the partnership/booking form, we collect the information you provide (name, email, WeChat, company, intent, message).\n\n## Purpose\n\n- To contact you, confirm your needs, and provide services.\n- To improve the website content and user experience.\n\n## Data retention\n\nWe retain data only for as long as necessary to fulfill the purposes above, and we take reasonable security measures to protect it.\n\n## Your rights\n\nYou can contact us via email to request access, correction, or deletion of your personal information.\n`
   }
 };
-
