@@ -66,6 +66,7 @@ npx wrangler deploy --env production
 Cloudflare Dashboard → Workers & Pages → Pages → Create a project → 连接 GitHub 仓库 `Leo1968/58begin`
 - Build command：`npm run build`
 - Build output directory：`dist`
+ - Pages 项目名建议：`58begin-web`（因为你的 Worker 已占用 `58begin` 这个名称）
 
 Pages 环境变量（Production）建议：
 - `VITE_ANALYTICS_PROVIDER=console`（上线后可改为 `none` 或接入第三方）
@@ -131,4 +132,3 @@ Cloudflare 默认提供 DDoS 防护。
 - 前端：Pages Deployments 可一键回滚到上一版本
 - 后端：Workers Versions 可回滚到上一版本
 - 数据：D1 可导出（需要时执行）；关键是做好“误提交流程”与限流防护
-

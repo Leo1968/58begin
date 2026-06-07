@@ -1,4 +1,4 @@
-name = "58begin-api"
+name = "58begin"
 main = "api/src/index.ts"
 compatibility_date = "2026-06-06"
 
@@ -13,7 +13,7 @@ database_name = "58begin"
 database_id = "06394828-3ff1-4dd7-9bcc-3e8c01566c75"
 
 [env.production]
-name = "58begin-api"
+name = "58begin"
 
 [env.production.vars]
 ALLOWED_ORIGINS = "https://58begin.com,https://www.58begin.com"

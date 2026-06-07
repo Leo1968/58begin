@@ -5,7 +5,7 @@
 
 ## 0. 前置条件
 - 已有 Cloudflare 账号并可管理域名 `58begin.com`
-- 已创建 Cloudflare Pages 项目（建议项目名：`58begin`）
+- 已创建 Cloudflare Pages 项目（建议项目名：`58begin-web`）
 - 已准备 GitHub Actions Secrets：
   - `CLOUDFLARE_API_TOKEN`
   - `CLOUDFLARE_ACCOUNT_ID`
@@ -51,4 +51,4 @@ Cloudflare Pages 构建配置：
 - 工作流文件：
   - [ci.yml](file:///Users/leoyoung/Desktop/58begin/.github/workflows/ci.yml)
   - [deploy.yml](file:///Users/leoyoung/Desktop/58begin/.github/workflows/deploy.yml)
-- 默认 Pages 项目名写死为 `58begin`，如不同请修改 `deploy.yml` 中 `projectName`
+- 默认 Pages 项目名写死为 `58begin-web`，如不同请修改 `deploy.yml` 中 `projectName`
