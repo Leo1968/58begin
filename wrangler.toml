@@ -1,4 +1,4 @@
-name = "58begin"
+name = "58begin-web"
 main = "api/src/index.ts"
 compatibility_date = "2026-06-06"
 
