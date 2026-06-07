@@ -43,7 +43,7 @@ export const siteZh: SiteContent = {
     items: [
       {
         id: "book-1",
-        title: "土壤张力传感器",
+        title: "土壤张力传感器 ZL202211359507.7",
         description:
           "以土壤张力作为植物吸水能力的核心表征指标，通过低成本传感器持续监测根区水分动态，实现从“经验灌溉”向“按需灌溉”的精准转变，为智慧农业提供关键数据基础。",
         ctaText: "了解与购买",
