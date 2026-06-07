@@ -1,0 +1,26 @@
+name = "58begin-api"
+main = "api/src/index.ts"
+compatibility_date = "2026-06-06"
+
+[vars]
+ALLOWED_ORIGINS = "http://localhost:5173"
+RATE_LIMIT_WINDOW_SECONDS = "60"
+RATE_LIMIT_MAX_REQUESTS = "5"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "58begin"
+database_id = "00000000-0000-0000-0000-000000000000"
+
+[env.production]
+name = "58begin-api"
+
+[env.production.vars]
+ALLOWED_ORIGINS = "https://58begin.com,https://www.58begin.com"
+RATE_LIMIT_WINDOW_SECONDS = "60"
+RATE_LIMIT_MAX_REQUESTS = "5"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "58begin"
+database_id = "00000000-0000-0000-0000-000000000000"
