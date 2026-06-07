@@ -10,7 +10,7 @@ RATE_LIMIT_MAX_REQUESTS = "5"
 [[d1_databases]]
 binding = "DB"
 database_name = "58begin"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "06394828-3ff1-4dd7-9bcc-3e8c01566c75"
 
 [env.production]
 name = "58begin-api"
@@ -23,4 +23,4 @@ RATE_LIMIT_MAX_REQUESTS = "5"
 [[env.production.d1_databases]]
 binding = "DB"
 database_name = "58begin"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "06394828-3ff1-4dd7-9bcc-3e8c01566c75"
