@@ -2,8 +2,14 @@ name = "58begin-web"
 main = "api/src/index.ts"
 compatibility_date = "2026-06-06"
 
+[assets]
+directory = "dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = true
+
 [vars]
-ALLOWED_ORIGINS = "http://localhost:5173"
+ALLOWED_ORIGINS = "http://localhost:5173,http://127.0.0.1:5173,http://localhost:8787,http://127.0.0.1:8787"
 RATE_LIMIT_WINDOW_SECONDS = "60"
 RATE_LIMIT_MAX_REQUESTS = "5"
 

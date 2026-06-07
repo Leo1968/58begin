@@ -1,16 +1,15 @@
-# Cloudflare 部署全流程（Pages + Workers + D1）
+# Cloudflare 部署全流程（Workers + Static Assets + D1）
 
-本项目为前后端分离形态：
-- 前端：Cloudflare Pages（静态站点，Vite 构建产物 `dist`）
+本项目为单 Worker 全栈形态：
+- 前端：Workers Static Assets（Vite 构建产物 `dist` 随 Worker 一起发布）
 - 后端：Cloudflare Workers（`/api/*`）
 - 数据库：Cloudflare D1（线索表单落库）
 
 ## 1. 技术栈与兼容性确认
-- 静态资源：Vite 产物，适配 Pages；已包含 SPA 回退规则（`public/_redirects`）与安全头（`public/_headers`），构建后会进入 `dist/` 根目录
+- 静态资源：Vite 产物 `dist/`，通过 Worker 的 `[assets]` 配置发布；安全头来自 `dist/_headers`
 - 后端服务：Workers（`api/src/index.ts`），使用标准 Fetch Handler，适配 Workers Runtime
 - 数据库：D1（SQLite 兼容），迁移脚本位于 `migrations/`
 - 环境变量：
-  - Pages：`VITE_API_BASE`（建议生产环境不填，默认走同域 `/api`），`VITE_ANALYTICS_PROVIDER`，`VITE_SITE_LANG_DEFAULT`
   - Workers：`ALLOWED_ORIGINS`、`RATE_LIMIT_WINDOW_SECONDS`、`RATE_LIMIT_MAX_REQUESTS`、`LEAD_WEBHOOK_URL`
 
 ## 2. Cloudflare 账户初始化（域名接入）
@@ -29,9 +28,8 @@ Cloudflare 会给出两条 Nameserver（NS）记录，例如：
 - DNS 传播可用 `dig NS 58begin.com`（可选）
 
 ## 3. 选择部署方案（本项目推荐）
-采用 **Pages + Workers + D1**：
-- Pages：负责站点与 SPA 路由
-- Workers：只接管 `/api/*`
+采用 **Workers + Static Assets + D1**：
+- Workers：同时负责站点路由与 `/api/*`
 - D1：存线索表单数据
 
 不使用 Tunnel（因为无需源站）。
@@ -53,36 +51,25 @@ npx wrangler d1 create 58begin
 npm run api:migrate:remote
 ```
 
-### 4.3 部署 Worker（API）
+### 4.3 构建并部署 Worker（前端静态资源 + API）
+先构建前端产物（生成 `dist/`）：
+```bash
+npm run build
+```
+
 ```bash
 npx wrangler deploy --env production
 ```
 
 建议绑定 Worker Route：
 - Cloudflare Dashboard → Workers & Pages → 你的 Worker → Triggers → Routes
-- 添加 Route：`58begin.com/api/*`
+- 添加 Route：`58begin.com/*`
+- 如需同时支持 `www.58begin.com`，再添加：`www.58begin.com/*`
 
-### 4.4 部署 Pages（前端）
-Cloudflare Dashboard → Workers & Pages → Pages → Create a project → 连接 GitHub 仓库 `Leo1968/58begin`
-- Build command：`npm run build`
-- Build output directory：`dist`
- - Pages 项目名建议：`58begin-web`（因为你的 Worker 已占用 `58begin` 这个名称）
-
-Pages 环境变量（Production）建议：
-- `VITE_ANALYTICS_PROVIDER=console`（上线后可改为 `none` 或接入第三方）
-- `VITE_SITE_LANG_DEFAULT=zh`
-- `VITE_API_BASE=`（留空：前端将使用同域 `/api`）
-
-### 4.5 自定义域名与 HTTPS
-Pages 项目 → Custom domains：
+### 4.4 自定义域名与 HTTPS
+Workers → 你的 Worker → Triggers / Custom Domains：
 - 绑定 `58begin.com` 与 `www.58begin.com`
 - 开启 Always Use HTTPS（SSL/TLS → Edge Certificates / 或 Rules 中强制）
-
-### 4.6 缓存与 CDN
-默认 Pages 静态资源已经走 Cloudflare CDN。
-建议补充：
-- Cache Rules：对 `/*.js`、`/*.css`、`/assets/*` 采用较长缓存（静态资源已带 hash，安全）
-- 对 HTML 维持默认（避免内容更新不生效）
 
 ## 5. 部署后全流程验证
 ### 5.1 可访问性与 HTTPS
@@ -124,11 +111,10 @@ Cloudflare 默认提供 DDoS 防护。
 - Cloudflare Turnstile：对表单提交增加人机验证（垃圾量大时再加）
 
 ### 6.2 监控与告警
-- Pages：构建失败告警（GitHub Actions + Pages）
+- GitHub Actions：构建/部署失败告警
 - Workers：错误率/延迟监控（Dashboard）
 - 域名可用性：UptimeRobot/自建监控（可选）
 
 ### 6.3 备份与回滚
-- 前端：Pages Deployments 可一键回滚到上一版本
-- 后端：Workers Versions 可回滚到上一版本
+- Workers：Versions 可回滚到上一版本
 - 数据：D1 可导出（需要时执行）；关键是做好“误提交流程”与限流防护

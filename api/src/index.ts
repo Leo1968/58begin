@@ -30,6 +30,54 @@ function handleOptions(request: Request, env: Env): Response {
   return withCors(request, env, text("", { status: 204 }));
 }
 
+async function serveStaticAsset(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+  const path = url.pathname;
+  const lastSegment = path.split("/").pop() ?? "";
+  const ext = lastSegment.includes(".")
+    ? lastSegment.split(".").pop()?.toLowerCase()
+    : undefined;
+
+  const res = await env.ASSETS.fetch(request);
+
+  if (
+    request.method === "GET" &&
+    ext &&
+    ext !== "html" &&
+    (res.headers.get("content-type") ?? "").includes("text/html")
+  ) {
+    return text("Not Found", { status: 404 });
+  }
+
+  if (res.status === 307) {
+    if (request.method !== "GET") return res;
+
+    const accept = request.headers.get("accept") ?? "";
+    const looksLikeHtmlNavigation = accept.includes("text/html");
+    const location = res.headers.get("location");
+
+    if (looksLikeHtmlNavigation && location === "/") {
+      const indexUrl = new URL(request.url);
+      indexUrl.pathname = "/index.html";
+      return env.ASSETS.fetch(new Request(indexUrl, request));
+    }
+  }
+
+  if (res.status !== 404) return res;
+
+  if (request.method !== "GET") return res;
+
+  const accept = request.headers.get("accept") ?? "";
+  const looksLikeHtmlNavigation = accept.includes("text/html");
+  const hasExtension = lastSegment.includes(".");
+
+  if (!looksLikeHtmlNavigation || hasExtension) return res;
+
+  const indexUrl = new URL(request.url);
+  indexUrl.pathname = "/index.html";
+  return env.ASSETS.fetch(new Request(indexUrl, request));
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -45,6 +93,10 @@ export default {
       const ip = getRequestIp(request);
       const res = await handleLeadCreate(request, env, { ip });
       return withCors(request, env, res);
+    }
+
+    if (!path.startsWith("/api")) {
+      return serveStaticAsset(request, env);
     }
 
     return withCors(

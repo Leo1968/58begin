@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:api": "wrangler dev --local --port 8787",
-    "dev:full": "concurrently -n web,api -c blue,green \"vite\" \"wrangler dev --local --port 8787\"",
+    "dev:api": "HOME=$PWD WRANGLER_WRITE_LOGS=false WRANGLER_SEND_METRICS=false CI=1 wrangler dev --local --port 8787",
+    "dev:full": "concurrently -n web,api -c blue,green \"vite\" \"HOME=$PWD WRANGLER_WRITE_LOGS=false WRANGLER_SEND_METRICS=false CI=1 wrangler dev --local --port 8787\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

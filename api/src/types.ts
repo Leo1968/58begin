@@ -21,9 +21,9 @@ export type LeadCreateResponse =
 
 export type Env = {
   DB: D1Database;
+  ASSETS: Fetcher;
   ALLOWED_ORIGINS?: string;
   RATE_LIMIT_WINDOW_SECONDS?: string;
   RATE_LIMIT_MAX_REQUESTS?: string;
   LEAD_WEBHOOK_URL?: string;
 };
-
