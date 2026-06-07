@@ -21,22 +21,22 @@ export const siteZh: SiteContent = {
     kicker: "你好，我是",
     title: "58begin",
     subtitle:
-      "上古神登的新天地｜58岁下场创业，非著名产品经理，硬件圈里的老钢炮。",
+      "｜上古神登的新天地｜58岁下场创业，非著名产品经理，硬件圈里的老钢炮。",
     primaryCta: { text: "查看产品与服务", href: "#products" },
     secondaryCta: { text: "了解代表作", href: "#featured" }
   },
   metrics: [
-    { label: "累计学员", value: "30,000+" },
-    { label: "全网粉丝", value: "1,500,000+" },
-    { label: "满意度", value: "9.2/10" }
+    { label: "发明专利", value: "5" },
+    { label: "开发项目", value: "11" },
+    { label: "满意度", value: "9.3/10" }
   ],
   about: {
     title: "关于 58begin",
     paragraphs: [
-      "这里是 58begin 的官方站点。你可以在这里快速了解我是谁、做什么、为谁解决什么问题，以及如何开始合作/学习。",
-      "我相信：清晰的表达、可沉淀的内容资产，以及可交付的产品服务，是个人品牌长期增长的三条主线。"
+      "这里是 58begin 的官方站点。你可以在这里快速了解我是谁、做什么、为您解决什么问题，以及如何开始合作。",
+      "我相信：你觉得这个世界上不可能的事，是因为你没有去做。"
     ],
-    highlights: ["个人品牌定位", "内容系统与增长", "产品化与商业闭环", "AI 工具与效率放大"]
+    highlights: ["定位硬件方向", "拆透产品需求", "跑通商业闭环", "用好AI杠杆"]
   },
   featured: {
     title: "代表作",
