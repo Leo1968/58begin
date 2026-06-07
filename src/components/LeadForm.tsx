@@ -184,4 +184,3 @@ export function LeadForm({ className }: { className?: string }) {
     </div>
   );
 }
-

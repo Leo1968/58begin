@@ -1,5 +1,8 @@
 # 部署（Cloudflare Pages + Workers + D1）
 
+更完整的“一步一步从域名接入到上线验证”说明见：
+- [CLOUDFLARE_RUNBOOK.md](file:///Users/leoyoung/Desktop/58begin/docs/CLOUDFLARE_RUNBOOK.md)
+
 ## 0. 前置条件
 - 已有 Cloudflare 账号并可管理域名 `58begin.com`
 - 已创建 Cloudflare Pages 项目（建议项目名：`58begin`）
@@ -49,4 +52,3 @@ Cloudflare Pages 构建配置：
   - [ci.yml](file:///Users/leoyoung/Desktop/58begin/.github/workflows/ci.yml)
   - [deploy.yml](file:///Users/leoyoung/Desktop/58begin/.github/workflows/deploy.yml)
 - 默认 Pages 项目名写死为 `58begin`，如不同请修改 `deploy.yml` 中 `projectName`
-
