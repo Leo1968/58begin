@@ -21,7 +21,7 @@ export const siteZh: SiteContent = {
     kicker: "你好，我是",
     title: "58begin",
     subtitle:
-      "用清晰的定位、可复用的内容资产与产品矩阵，把热爱变成长期事业。",
+      "上古神登的新天地｜58岁下场创业，非著名产品经理，硬件圈里的老钢炮。",
     primaryCta: { text: "查看产品与服务", href: "#products" },
     secondaryCta: { text: "了解代表作", href: "#featured" }
   },
