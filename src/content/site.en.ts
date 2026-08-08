@@ -35,11 +35,11 @@ export const siteEn: SiteContent = {
     title: "About 58begin",
     mission: {
       title: "Mission",
-      body: "Help hardware products move from idea to reality faster, sturdier, and more repeatable."
+      body: "Making innovative medical devices faster, safer, and accessible worldwide."
     },
     vision: {
       title: "Vision",
-      body: "Use engineering discipline and AI leverage to help more hardware builders complete the product-to-business loop."
+      body: "To become the world's leading AI-powered engine accelerating medical device innovation, regulatory excellence, and commercialization."
     },
     paragraphs: [
       "This is the official site for 58begin. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together.",
@@ -55,26 +55,11 @@ export const siteEn: SiteContent = {
   culture: {
     title: "Our Values",
     items: [
-      {
-        title: "Hardware First",
-        description: "Focus on shippable, verifiable, manufacturable hardware value."
-      },
-      {
-        title: "Product Thinking",
-        description: "Drive iteration with clear requirements and measurable outcomes."
-      },
-      {
-        title: "Engineering Discipline",
-        description: "Make results reusable and repeatable with process, tools, and standards."
-      },
-      {
-        title: "Business Loop",
-        description: "Go the last mile from product to channel to delivery."
-      },
-      {
-        title: "AI Leverage",
-        description: "Use AI as a multiplier for efficiency and insight, not as a gimmick."
-      }
+      { title: "Mission Driven", description: "Innovating to improve lives." },
+      { title: "Innovation", description: "Breaking technology boundaries to transform healthcare." },
+      { title: "Responsibility", description: "Respecting life through uncompromising quality and safety." },
+      { title: "Execution", description: "Turning bold ideas into real-world medical solutions." },
+      { title: "Collaboration", description: "Building a global ecosystem for healthcare innovation." }
     ]
   },
   featured: {
