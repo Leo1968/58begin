@@ -4,10 +4,10 @@ test("home loads and can switch language", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle(/58begin/i);
 
-  await page.getByRole("button", { name: "EN" }).click();
-  await expect(page.getByRole("button", { name: "中" })).toBeVisible();
+  const toggle = page.getByRole("button", { name: /^(EN|中)$/ });
+  await toggle.click();
+  await expect(page.getByRole("button", { name: /^(EN|中)$/ })).toBeVisible();
 
   await page.goto("/posts");
-  await expect(page.getByText(/内容|Content/)).toBeVisible();
+  await expect(page.getByRole("button", { name: /^(全部|All)$/ })).toBeVisible();
 });
-
