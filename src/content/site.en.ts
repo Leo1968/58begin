@@ -10,6 +10,7 @@ export const siteEn: SiteContent = {
     brand: "58begin",
     sections: [
       { id: "about", label: "About" },
+      { id: "culture", label: "Culture" },
       { id: "featured", label: "Featured" },
       { id: "content", label: "Content" },
       { id: "products", label: "Products & Services" },
@@ -32,6 +33,14 @@ export const siteEn: SiteContent = {
   ],
   about: {
     title: "About 58begin",
+    mission: {
+      title: "Mission",
+      body: "Making innovative medical devices faster, safer, and accessible worldwide."
+    },
+    vision: {
+      title: "Vision",
+      body: "To become the world's leading AI-powered engine accelerating medical device innovation, regulatory excellence, and commercialization."
+    },
     paragraphs: [
       "This is the official site for 58begin. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together.",
       "I believe: the reason something feels impossible is simply because you haven't done it yet."
@@ -41,6 +50,22 @@ export const siteEn: SiteContent = {
       "Break down product requirements",
       "Close the business loop",
       "Leverage AI"
+    ]
+  },
+  culture: {
+    title: "Our Values",
+    items: [
+      { title: "Mission Driven", description: "Innovating to improve lives." },
+      { title: "Innovation", description: "Breaking technology boundaries to transform healthcare." },
+      {
+        title: "Responsibility",
+        description: "Respecting life through uncompromising quality and safety."
+      },
+      { title: "Execution", description: "Turning bold ideas into real-world medical solutions." },
+      {
+        title: "Collaboration",
+        description: "Building a global ecosystem for healthcare innovation."
+      }
     ]
   },
   featured: {

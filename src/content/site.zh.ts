@@ -10,6 +10,7 @@ export const siteZh: SiteContent = {
     brand: "58begin",
     sections: [
       { id: "about", label: "关于" },
+      { id: "culture", label: "文化" },
       { id: "featured", label: "代表作" },
       { id: "content", label: "内容" },
       { id: "products", label: "产品与服务" },
@@ -32,11 +33,29 @@ export const siteZh: SiteContent = {
   ],
   about: {
     title: "关于 58begin",
+    mission: {
+      title: "使命",
+      body: "让创新医疗器械更快、更安全，并在全球范围内触达更多人。"
+    },
+    vision: {
+      title: "愿景",
+      body: "成为全球领先的 AI 驱动医疗器械创新、卓越合规与商业化加速引擎。"
+    },
     paragraphs: [
       "这里是 58begin 的官方站点。你可以在这里快速了解我是谁、做什么、为您解决什么问题，以及如何开始合作。",
       "我相信：你觉得这个世界上不可能的事，是因为你没有去做。"
     ],
     highlights: ["定位硬件方向", "拆透产品需求", "跑通商业闭环", "用好AI杠杆"]
+  },
+  culture: {
+    title: "价值观",
+    items: [
+      { title: "使命驱动", description: "以创新改善生命与健康。" },
+      { title: "创新", description: "突破技术边界，推动医疗健康变革。" },
+      { title: "责任", description: "以毫不妥协的质量与安全尊重生命。" },
+      { title: "执行", description: "把大胆想法转化为真实世界的医疗解决方案。" },
+      { title: "协作", description: "共建面向全球的医疗健康创新生态。" }
+    ]
   },
   featured: {
     title: "代表作",

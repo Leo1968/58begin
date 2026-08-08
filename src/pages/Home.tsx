@@ -8,6 +8,7 @@ import { getSiteContent } from "@/content";
 import { track } from "@/utils/analytics";
 import { HeroSection } from "@/sections/home/HeroSection";
 import { AboutSection } from "@/sections/home/AboutSection";
+import { CultureSection } from "@/sections/home/CultureSection";
 import { FeaturedSection } from "@/sections/home/FeaturedSection";
 import { ContentSection } from "@/sections/home/ContentSection";
 import { ProductsSection } from "@/sections/home/ProductsSection";
@@ -50,6 +51,7 @@ export default function Home() {
     <PageShell activeSectionId={active}>
       <HeroSection hero={content.hero} metrics={content.metrics} />
       <AboutSection about={content.about} />
+      <CultureSection culture={content.culture} />
       <FeaturedSection featured={content.featured} />
       <ContentSection posts={content.posts} findMeOn={content.findMeOn} lang={lang} />
       <ProductsSection products={content.products} />
