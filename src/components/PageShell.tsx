@@ -64,7 +64,7 @@ export function PageShell({
 
         <div className="border-t border-header-border">
           <Container className="flex flex-col items-start justify-between gap-2 py-5 text-xs sm:flex-row sm:items-center">
-            <div>© {new Date().getFullYear()} {content.nav.brand}</div>
+            <div>© {new Date().getFullYear()} {content.copyright}</div>
             <div>
               {lang === "zh"
                 ? "本网站内容支持持续更新与版本迭代。"

@@ -6,6 +6,7 @@ export const siteZh: SiteContent = {
     description: "58begin.com — Skywalker Labs 官网。"
   },
   footerTagline: "志存高远，脚踏实地。",
+  copyright: "Skywalker Labs",
   nav: {
     brand: "58begin",
     sections: [
@@ -102,7 +103,7 @@ export const siteZh: SiteContent = {
     items: [
       { id: "rednote", label: "小红书", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
       { id: "douyin", label: "抖音", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
-      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦", iconKey: "x" },
+      { id: "x", label: "X.com", href: "https://x.com/LeoYang87346355", icon: "🐦", iconKey: "x" },
       { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶", iconKey: "youtube" },
       { id: "bilibili", label: "哔哩哔哩", href: "https://example.com", icon: "📺", iconKey: "bilibili" }
     ]

@@ -51,6 +51,8 @@ export type SiteContent = {
   };
   /** short brand slogan shown under the footer logo */
   footerTagline: string;
+  /** entity name shown in the footer copyright bar (may differ from site brand) */
+  copyright: string;
   nav: {
     brand: string;
     sections: { id: string; label: string }[];

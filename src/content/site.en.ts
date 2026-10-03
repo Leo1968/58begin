@@ -6,6 +6,7 @@ export const siteEn: SiteContent = {
     description: "58begin.com — Skywalker Labs official site."
   },
   footerTagline: "Aim High, Stay Grounded.",
+  copyright: "Skywalker Labs",
   nav: {
     brand: "58begin",
     sections: [
@@ -107,7 +108,7 @@ export const siteEn: SiteContent = {
     items: [
       { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
       { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
-      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦", iconKey: "x" },
+      { id: "x", label: "X.com", href: "https://x.com/LeoYang87346355", icon: "🐦", iconKey: "x" },
       { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶", iconKey: "youtube" },
       { id: "bilibili", label: "Bilibili", href: "https://example.com", icon: "📺", iconKey: "bilibili" }
     ]
