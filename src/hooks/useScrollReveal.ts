@@ -8,10 +8,13 @@ import type { RefObject } from "react";
  * Cascade delays come from each element's inline `--reveal-delay`.
  * Under prefers-reduced-motion the CSS layer disables all of it.
  *
- * Safety net: a passive scroll/resize sweep re-checks unrevealed elements
- * already inside the viewport, so content can never stay hidden if the
- * observer is throttled or misses a state change (e.g. backgrounded
- * webviews, instant anchor jumps).
+ * Self-healing guarantees (content must never stay invisible):
+ * 1. A passive scroll/resize sweep re-checks unrevealed elements that are
+ *    already inside the viewport (covers missed IO state changes).
+ * 2. A 1s interval re-runs the sweep until every target is revealed
+ *    (covers throttled IO in backgrounded tabs, where no further scroll
+ *    event may ever fire while the content sits on screen).
+ * 3. Switching back to the tab triggers an immediate sweep.
  */
 export function useScrollReveal(root: RefObject<HTMLElement | null>) {
   useEffect(() => {
@@ -22,6 +25,10 @@ export function useScrollReveal(root: RefObject<HTMLElement | null>) {
     const targets = Array.from(el.querySelectorAll<HTMLElement>(".reveal"));
     if (targets.length === 0) return;
 
+    const inView = (target: HTMLElement) => {
+      const rect = target.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.98 && rect.bottom > 0;
+    };
     const reveal = (node: Element) => {
       node.classList.add("is-revealed");
     };
@@ -46,20 +53,12 @@ export function useScrollReveal(root: RefObject<HTMLElement | null>) {
     let raf = 0;
     const sweep = () => {
       raf = 0;
-      let pending = false;
       for (const target of targets) {
         if (target.classList.contains("is-revealed")) continue;
-        const rect = target.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        if (inView(target)) {
           reveal(target);
           io.unobserve(target);
-        } else {
-          pending = true;
         }
-      }
-      if (!pending) {
-        window.removeEventListener("scroll", onScroll);
-        window.removeEventListener("resize", onScroll);
       }
     };
     const onScroll = () => {
@@ -67,11 +66,25 @@ export function useScrollReveal(root: RefObject<HTMLElement | null>) {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
+    document.addEventListener("visibilitychange", onScroll);
+
+    const guard = window.setInterval(() => {
+      sweep();
+      if (targets.every((t) => t.classList.contains("is-revealed"))) {
+        window.clearInterval(guard);
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onScroll);
+        document.removeEventListener("visibilitychange", onScroll);
+        io.disconnect();
+      }
+    }, 1000);
 
     return () => {
+      window.clearInterval(guard);
       io.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      document.removeEventListener("visibilitychange", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
   }, [root]);
