@@ -69,13 +69,13 @@ export function SiteNav({
             className="flex items-center gap-2.5"
             aria-label={content.nav.brand}
           >
-            <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-white">
+            <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white">
               <img
                 src="/pegasus-mark.png"
                 alt=""
-                width={80}
-                height={68}
-                className="h-6 w-auto"
+                width={520}
+                height={452}
+                className="h-[27px] w-auto"
               />
             </span>
             <span className="font-display text-lg font-bold tracking-tight text-header-fg">
