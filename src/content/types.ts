@@ -45,11 +45,6 @@ export type ToolItem = {
   href: string;
 };
 
-export type ValueItem = {
-  title: string;
-  description: string;
-};
-
 export type SiteContent = {
   seo: {
     title: string;
@@ -77,10 +72,6 @@ export type SiteContent = {
     vision: { title: string; body: string };
     paragraphs: string[];
     highlights: string[];
-  };
-  culture: {
-    title: string;
-    items: ValueItem[];
   };
   featured: {
     title: string;

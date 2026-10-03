@@ -10,7 +10,6 @@ export const siteEn: SiteContent = {
     brand: "58begin",
     sections: [
       { id: "about", label: "About" },
-      { id: "culture", label: "Culture" },
       { id: "featured", label: "Featured" },
       { id: "content", label: "Content" },
       { id: "products", label: "Products & Services" },
@@ -61,16 +60,6 @@ export const siteEn: SiteContent = {
       "Break down product requirements",
       "Close the business loop",
       "Leverage AI"
-    ]
-  },
-  culture: {
-    title: "Our Values",
-    items: [
-      { title: "Mission Driven", description: "Innovating to improve lives." },
-      { title: "Innovation", description: "Breaking technology boundaries to transform healthcare." },
-      { title: "Responsibility", description: "Respecting life through uncompromising quality and safety." },
-      { title: "Execution", description: "Turning bold ideas into real-world medical solutions." },
-      { title: "Collaboration", description: "Building a global ecosystem for healthcare innovation." }
     ]
   },
   featured: {

@@ -10,7 +10,6 @@ export const siteZh: SiteContent = {
     brand: "58begin",
     sections: [
       { id: "about", label: "关于" },
-      { id: "culture", label: "文化" },
       { id: "featured", label: "代表作" },
       { id: "content", label: "内容" },
       { id: "products", label: "产品与服务" },
@@ -57,16 +56,6 @@ export const siteZh: SiteContent = {
       "我相信：你觉得这个世界上不可能的事，是因为你没有去做。"
     ],
     highlights: ["定位硬件方向", "拆透产品需求", "跑通商业闭环", "用好AI杠杆"]
-  },
-  culture: {
-    title: "价值观",
-    items: [
-      { title: "使命驱动", description: "以创新改善生命与健康。" },
-      { title: "创新", description: "突破技术边界，推动医疗健康变革。" },
-      { title: "责任", description: "以毫不妥协的质量与安全尊重生命。" },
-      { title: "执行", description: "把大胆想法转化为真实世界的医疗解决方案。" },
-      { title: "协作", description: "共建面向全球的医疗健康创新生态。" }
-    ]
   },
   featured: {
     title: "代表作",
