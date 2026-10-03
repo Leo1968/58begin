@@ -27,7 +27,7 @@ export function ClosingCtaSection({
   };
   return (
     <div className="bg-header-bg text-header-fg">
-      <Container className="py-20 text-center sm:py-28">
+      <Container className="py-14 text-center sm:py-20">
         <h2
           className="reveal mx-auto max-w-[880px] font-display text-[clamp(36px,5.5vw,64px)] font-extrabold leading-[1.05] tracking-[-0.02em]"
         >

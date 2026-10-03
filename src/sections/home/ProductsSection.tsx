@@ -11,9 +11,9 @@ export function ProductsSection({
   products: SiteContent["products"];
 }) {
   return (
-    <Container className="py-16 sm:py-24">
+    <Container className="section-y">
       <SectionHeading id="products" title={products.title} />
-      <div className="mt-10 grid gap-4 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 lg:grid-cols-3">
         {products.items.map((it, i) => (
           <div
             key={it.id}

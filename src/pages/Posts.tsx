@@ -38,7 +38,7 @@ export default function Posts() {
 
   return (
     <PageShell>
-      <Container className="py-16 sm:py-24">
+      <Container className="section-y">
         <div className="max-w-[900px]">
           <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
             {lang === "zh" ? "知识库" : "Knowledge Base"}
@@ -80,7 +80,7 @@ export default function Posts() {
             </div>
           ) : null}
 
-          <div className="mt-10 grid gap-4">
+          <div className="mt-8 grid gap-4">
             {posts.map((p) => (
               <Link key={p.slug} to={`/posts/${p.slug}`} className="group block">
                 <Card shape="square" className="p-6">

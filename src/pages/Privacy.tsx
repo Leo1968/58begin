@@ -25,7 +25,7 @@ export default function Privacy() {
 
   return (
     <PageShell>
-      <Container className="py-16 sm:py-24">
+      <Container className="section-y">
         <div className="max-w-[860px]">
           <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
             {lang === "zh" ? "法律声明" : "Legal"}

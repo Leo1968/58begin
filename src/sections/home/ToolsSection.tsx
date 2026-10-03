@@ -8,9 +8,9 @@ import { track } from "@/utils/analytics";
 export function ToolsSection({ tools }: { tools: SiteContent["tools"] }) {
   return (
     <div className="bg-surface-4">
-      <Container className="py-16 sm:py-24">
+      <Container className="section-y">
         <SectionHeading id="tools" title={tools.title} />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {tools.items.map((t, i) => (
             <div
               key={t.id}

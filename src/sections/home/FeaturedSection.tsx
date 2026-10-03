@@ -11,7 +11,7 @@ export function FeaturedSection({
   featured: SiteContent["featured"];
 }) {
   return (
-    <Container className="py-16 sm:py-24">
+    <Container className="section-y">
       <SectionHeading id="featured" title={featured.title} />
       <div>
         {featured.items.map((it, i) => (

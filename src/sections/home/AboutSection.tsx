@@ -6,9 +6,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 export function AboutSection({ about }: { about: SiteContent["about"] }) {
   return (
     <div className="bg-surface-4">
-      <Container className="py-16 sm:py-24">
+      <Container className="section-y">
         <SectionHeading id="about" title={about.title} />
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="max-w-[760px]">
             <div
               className="reveal grid gap-8 sm:grid-cols-2"

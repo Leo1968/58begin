@@ -19,7 +19,7 @@ export function HeroSection({
   trustBadges: SiteContent["trustBadges"];
 }) {
   return (
-    <Container className="py-16 sm:py-24">
+    <Container className="section-y">
       <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
         {hero.kicker}
       </div>

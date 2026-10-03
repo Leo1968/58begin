@@ -33,8 +33,12 @@ Tag/badge chip:           rounded-full
 ```text
 max-width: 1440px（max-w-site）
 容器水平留白: 20px → 32px(sm) → 40px(lg)
-分区纵向节奏: py-16（64px）→ sm:py-24（96px）
+分区纵向节奏: .section-y = var(--section-y) = 48px（移动）→ 64px（≥sm）
+              （方案 A 收紧：原 py-16 sm:py-24 = 64/96px；全站共享，调距只改这两个值）
+标题→内容:    mt-8（32px）
+收尾带内边距: py-14（56px）→ sm:py-20（80px）
 分区底色带:   bg-surface-2/3/4 = 黑 8%/4%/2%（斑马交替）
+打印/导出:    reveal 内容强制直显（@media print）
 ```
 
 ## Colors（token 即规范）

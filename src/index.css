@@ -76,6 +76,25 @@ body {
 }
 
 /*
+ * Section vertical rhythm (single source of truth — tune these two values
+ * to re-space every home/secondary section at once). Current: 48px mobile,
+ * 64px ≥sm (the "comfortable" rhythm chosen over the original 64/96).
+ */
+:root {
+  --section-y: 48px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --section-y: 64px;
+  }
+}
+
+.section-y {
+  padding-block: var(--section-y);
+}
+
+/*
  * Scroll-reveal primitives (progressive enhancement: the hidden state only
  * applies once JS mounts and adds `.reveal-ready` to the page root, so
  * content is never lost without scripting).
@@ -113,6 +132,16 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-media > img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* printing must never capture half-revealed (invisible) content */
+@media print {
   .reveal,
   .reveal-media > img {
     opacity: 1 !important;

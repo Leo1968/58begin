@@ -37,9 +37,9 @@ export function ContactSection({
   };
 
   return (
-    <Container className="py-16 sm:py-24">
+    <Container className="section-y">
       <SectionHeading id="contact" title={contact.title} subtitle={contact.description} />
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_440px] lg:items-start">
+      <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_440px] lg:items-start">
         <div className="grid gap-4">
           <Card shape="square" className="reveal p-6">
             <div className="text-xs text-muted">Email</div>
