@@ -93,31 +93,19 @@ export function ContactSection({
                 </button>
               </div>
 
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
-                  {findMeOn.title}
-                </div>
-                <div className="mt-2">
-                  {findMeOn.items.map((it) => (
-                    <TrackedLink
-                      key={it.id}
-                      href={it.href}
-                      tracking={{ type: "social", platform: it.label }}
-                      className="group flex items-center justify-between border-b border-border bg-transparent px-1 py-2.5 text-sm text-fg transition hover:bg-surface-4"
-                    >
-                      <span className="flex items-center gap-2.5">
-                        <span className="text-base">{it.icon}</span>
-                        {it.label}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="text-muted transition-transform duration-200 group-hover:translate-x-0.5"
-                      >
-                        →
-                      </span>
-                    </TrackedLink>
-                  ))}
-                </div>
+              <div className="flex flex-wrap content-center gap-3">
+                {findMeOn.items.map((it) => (
+                  <TrackedLink
+                    key={it.id}
+                    href={it.href}
+                    tracking={{ type: "social", platform: it.label }}
+                    aria-label={it.label}
+                    title={it.label}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-border bg-bg text-xl transition hover:-translate-y-0.5 hover:bg-fg/5"
+                  >
+                    <span aria-hidden="true">{it.icon}</span>
+                  </TrackedLink>
+                ))}
               </div>
             </div>
           </Card>
