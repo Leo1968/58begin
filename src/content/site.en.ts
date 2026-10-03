@@ -11,7 +11,6 @@ export const siteEn: SiteContent = {
     sections: [
       { id: "about", label: "About" },
       { id: "featured", label: "Featured" },
-      { id: "content", label: "Content" },
       { id: "products", label: "Products & Services" },
       { id: "tools", label: "Tools" },
       { id: "contact", label: "Contact" }
@@ -210,7 +209,7 @@ export const siteEn: SiteContent = {
     title: "Turn the impossible into your next step.",
     subtitle: "Start with one conversation: a course, a partnership, or just a good question.",
     primaryCta: { text: "Start a conversation", href: "#contact" },
-    secondaryCta: { text: "Read the latest posts", href: "#content" }
+    secondaryCta: { text: "Read the latest posts", href: "/posts" }
   },
   posts: {
     title: "Content",

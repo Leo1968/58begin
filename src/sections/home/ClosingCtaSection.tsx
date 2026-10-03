@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { Link } from "react-router-dom";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { track } from "@/utils/analytics";
@@ -8,6 +9,22 @@ export function ClosingCtaSection({
 }: {
   closingCta: SiteContent["closingCta"];
 }) {
+  const secondaryHref = closingCta.secondaryCta.href;
+  const secondaryProps = {
+    className:
+      "inline-flex items-center gap-2 rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-header-fg transition hover:bg-white hover:text-fg",
+    onClick: () =>
+      track({
+        name: "cta_click",
+        props: {
+          cta_id: "closing_secondary",
+          cta_text: closingCta.secondaryCta.text,
+          section: "closing_cta",
+          target_url: closingCta.secondaryCta.href,
+          is_external: false
+        }
+      })
+  };
   return (
     <div className="bg-header-bg text-header-fg">
       <Container className="py-20 text-center sm:py-28">
@@ -44,24 +61,15 @@ export function ClosingCtaSection({
           >
             {closingCta.primaryCta.text}
           </a>
-          <a
-            href={closingCta.secondaryCta.href}
-            className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-header-fg transition hover:bg-white hover:text-fg"
-            onClick={() =>
-              track({
-                name: "cta_click",
-                props: {
-                  cta_id: "closing_secondary",
-                  cta_text: closingCta.secondaryCta.text,
-                  section: "closing_cta",
-                  target_url: closingCta.secondaryCta.href,
-                  is_external: false
-                }
-              })
-            }
-          >
-            {closingCta.secondaryCta.text}
-          </a>
+          {secondaryHref.startsWith("#") ? (
+            <a href={secondaryHref} {...secondaryProps}>
+              {closingCta.secondaryCta.text}
+            </a>
+          ) : (
+            <Link to={secondaryHref} {...secondaryProps}>
+              {closingCta.secondaryCta.text}
+            </Link>
+          )}
         </div>
       </Container>
     </div>

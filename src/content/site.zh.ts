@@ -11,7 +11,6 @@ export const siteZh: SiteContent = {
     sections: [
       { id: "about", label: "关于" },
       { id: "featured", label: "代表作" },
-      { id: "content", label: "内容" },
       { id: "products", label: "产品与服务" },
       { id: "tools", label: "工具" },
       { id: "contact", label: "联系" }
@@ -201,7 +200,7 @@ export const siteZh: SiteContent = {
     title: "把不可能，变成下一步。",
     subtitle: "从一次对话开始：课程、合作，或只是一个好问题。",
     primaryCta: { text: "开始沟通", href: "#contact" },
-    secondaryCta: { text: "阅读最新内容", href: "#content" }
+    secondaryCta: { text: "阅读最新内容", href: "/posts" }
   },
   posts: {
     title: "内容",

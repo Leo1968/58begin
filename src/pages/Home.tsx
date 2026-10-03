@@ -10,7 +10,7 @@ import { track } from "@/utils/analytics";
 import { HeroSection } from "@/sections/home/HeroSection";
 import { AboutSection } from "@/sections/home/AboutSection";
 import { FeaturedSection } from "@/sections/home/FeaturedSection";
-import { ContentSection } from "@/sections/home/ContentSection";
+import { SocialSection } from "@/sections/home/SocialSection";
 import { ProductsSection } from "@/sections/home/ProductsSection";
 import { ToolsSection } from "@/sections/home/ToolsSection";
 import { ContactSection } from "@/sections/home/ContactSection";
@@ -57,7 +57,7 @@ export default function Home() {
       <HeroSection hero={content.hero} metrics={content.metrics} trustBadges={content.trustBadges} />
       <AboutSection about={content.about} />
       <FeaturedSection featured={content.featured} />
-      <ContentSection posts={content.posts} findMeOn={content.findMeOn} lang={lang} />
+      <SocialSection findMeOn={content.findMeOn} />
       <ProductsSection products={content.products} />
       <ToolsSection tools={content.tools} />
       <ContactSection contact={content.contact} lang={lang} />
