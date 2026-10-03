@@ -15,12 +15,6 @@ export function PageShell({
   const { lang } = useLangStore();
   const content = useMemo(() => getSiteContent(lang), [lang]);
 
-  const siteLinks = [
-    { to: "/", label: lang === "zh" ? "首页" : "Home" },
-    { to: "/posts", label: lang === "zh" ? "内容" : "Content" },
-    { to: "/privacy", label: lang === "zh" ? "隐私" : "Privacy" }
-  ];
-
   return (
     <div className="min-h-dvh">
       <Helmet>
@@ -35,7 +29,7 @@ export function PageShell({
       <main>{children}</main>
 
       <footer className="border-t border-header-border bg-header-bg text-footer-text">
-        <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-3">
+        <Container className="grid gap-10 py-14 sm:grid-cols-2">
           <div>
             <div className="font-display text-lg font-bold tracking-tight text-header-fg">
               {content.nav.brand}
@@ -45,22 +39,7 @@ export function PageShell({
             </p>
           </div>
 
-          <nav aria-label={lang === "zh" ? "站点导航" : "Site"}>
-            <div className="text-xs uppercase tracking-[0.2em] text-white/50">
-              {lang === "zh" ? "站点" : "Site"}
-            </div>
-            <ul className="mt-4 grid gap-2 text-sm">
-              {siteLinks.map((l) => (
-                <li key={l.to}>
-                  <Link className="transition hover:text-white" to={l.to}>
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div>
+          <div className="sm:justify-self-end sm:text-right">
             <div className="text-xs uppercase tracking-[0.2em] text-white/50">
               {lang === "zh" ? "联系" : "Contact"}
             </div>
