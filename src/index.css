@@ -77,16 +77,17 @@ body {
 
 /*
  * Section vertical rhythm (single source of truth — tune these two values
- * to re-space every home/secondary section at once). Current: 48px mobile,
- * 64px ≥sm (the "comfortable" rhythm chosen over the original 64/96).
+ * to re-space every home/secondary section at once). Current: 40px mobile,
+ * 48px ≥sm → ~96px visible gap between adjacent sections (tightened twice
+ * from the original 64/96 → 48/64 → 40/48 per owner feedback).
  */
 :root {
-  --section-y: 48px;
+  --section-y: 40px;
 }
 
 @media (min-width: 640px) {
   :root {
-    --section-y: 64px;
+    --section-y: 48px;
   }
 }
 
