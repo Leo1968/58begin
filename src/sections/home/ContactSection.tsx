@@ -4,6 +4,7 @@ import type { SiteContent } from "@/content/types";
 import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { TrackedLink } from "@/components/TrackedLink";
 import { LeadForm } from "@/components/LeadForm";
 import { Modal } from "@/components/Modal";
 import { Toast } from "@/components/Toast";
@@ -11,9 +12,11 @@ import { track } from "@/utils/analytics";
 
 export function ContactSection({
   contact,
+  findMeOn,
   lang
 }: {
   contact: SiteContent["contact"];
+  findMeOn: SiteContent["findMeOn"];
   lang: "zh" | "en";
 }) {
   const [copied, setCopied] = useState(false);
@@ -62,40 +65,60 @@ export function ContactSection({
 
           <Card shape="square" className="reveal p-6" style={{ "--reveal-delay": "90ms" } as CSSProperties}>
             <div className="text-xs text-muted">{contact.wechatLabel}</div>
-            {contact.wechatQr ? (
-              <div className="mt-4 flex flex-wrap items-center gap-6">
-                <img
-                  src={contact.wechatQr.src}
-                  alt={contact.wechatQr.alt}
-                  width={600}
-                  height={568}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-40 w-40 border border-border"
-                />
-                <div className="text-sm leading-relaxed text-muted">
-                  {lang === "zh"
-                    ? "微信扫码添加，或点击下方按钮放大查看。"
-                    : "Scan with WeChat, or open the dialog below to zoom in."}
+            <div className="mt-4 grid gap-8 sm:grid-cols-[176px_1fr] sm:items-start">
+              <div>
+                {contact.wechatQr ? (
+                  <img
+                    src={contact.wechatQr.src}
+                    alt={contact.wechatQr.alt}
+                    width={600}
+                    height={568}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-40 border border-border"
+                  />
+                ) : (
+                  <div className="grid h-40 w-40 place-items-center border border-border text-xs text-muted">
+                    {lang === "zh" ? "二维码待配置" : "QR not configured"}
+                  </div>
+                )}
+                <button
+                  onClick={() => {
+                    setQrOpen(true);
+                    track({ name: "contact_qr_zoom", props: { source: "contact" } });
+                  }}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-fg hover:bg-fg/5"
+                >
+                  {lang === "zh" ? "查看二维码区域" : "Open QR area"}
+                </button>
+              </div>
+
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+                  {findMeOn.title}
+                </div>
+                <div className="mt-2">
+                  {findMeOn.items.map((it) => (
+                    <TrackedLink
+                      key={it.id}
+                      href={it.href}
+                      tracking={{ type: "social", platform: it.label }}
+                      className="group flex items-center justify-between border-b border-border bg-transparent px-1 py-2.5 text-sm text-fg transition hover:bg-surface-4"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <span className="text-base">{it.icon}</span>
+                        {it.label}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="text-muted transition-transform duration-200 group-hover:translate-x-0.5"
+                      >
+                        →
+                      </span>
+                    </TrackedLink>
+                  ))}
                 </div>
               </div>
-            ) : (
-              <div className="mt-3 text-sm text-muted">
-                {lang === "zh"
-                  ? "如需展示二维码，请将二维码图片放到 public/ 目录并在内容配置中填写链接。"
-                  : "To show a QR code, place an image under public/ and set its URL in content config."}
-              </div>
-            )}
-            <div className="mt-5">
-              <button
-                onClick={() => {
-                  setQrOpen(true);
-                  track({ name: "contact_qr_zoom", props: { source: "contact" } });
-                }}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-fg hover:bg-fg/5"
-              >
-                {lang === "zh" ? "查看二维码区域" : "Open QR area"}
-              </button>
             </div>
           </Card>
         </div>
