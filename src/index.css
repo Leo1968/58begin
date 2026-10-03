@@ -12,7 +12,7 @@
  */
 :root {
   /* base surfaces */
-  --bg: 255 255 255;
+  --bg: 250 247 240; /* 米白 warm off-white */
   --fg: 0 0 0;
   --card: 255 255 255;
   --border: 0 0 0; /* rendered at 10% → hairline */
