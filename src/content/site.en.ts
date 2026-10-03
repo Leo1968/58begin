@@ -3,8 +3,7 @@ import type { SiteContent } from "./types";
 export const siteEn: SiteContent = {
   seo: {
     title: "58begin",
-    description:
-      "58begin.com — official site for a personal brand and product matrix: featured work, content, products & services, tools, and contact entry points."
+    description: "58begin.com — Skywalker Labs official site."
   },
   nav: {
     brand: "58begin",

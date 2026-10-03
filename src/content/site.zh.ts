@@ -3,8 +3,7 @@ import type { SiteContent } from "./types";
 export const siteZh: SiteContent = {
   seo: {
     title: "58begin",
-    description:
-      "58begin.com — 个人品牌与产品矩阵官网：代表作、内容、产品与服务、工具与联系入口。"
+    description: "58begin.com — Skywalker Labs 官网。"
   },
   nav: {
     brand: "58begin",
