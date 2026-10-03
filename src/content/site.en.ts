@@ -20,7 +20,7 @@ export const siteEn: SiteContent = {
   },
   announcement: {
     items: [
-      "58begin — The reason something feels impossible is simply because you haven't done it yet.",
+      "58begin — What seems impossible to the world may simply be something you have never tried to do.",
       "Open to business partnerships — reach out via the footer below."
     ]
   },
