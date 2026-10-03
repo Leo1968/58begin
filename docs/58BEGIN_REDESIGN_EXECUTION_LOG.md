@@ -305,3 +305,28 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Next-stage recommendation
 
 进入 P7（Release）：创建 PR（含变更/测试/风险/回滚说明）→ **等待人工批准** → 批准后 deploy + 线上冒烟 + 回滚演练。
+
+---
+
+## 增量变更 — 代表作切换为 Falco（2026-10-03，预览评审后用户指令）
+
+> 性质：内容替换 + 小型组件能力扩展，未改变视觉规则与业务契约。
+
+### Changed files
+
+| 文件 | 变更 |
+|---|---|
+| `public/falco-windows-optimizer.png` | **新增**：Falco 主界面截图（源图 2211×1655 → 1600×1197，1.1MB；本机 sips 不支持 webp 写出，PNG+lazy 加载 + 显式宽高防 CLS） |
+| `src/content/types.ts` | `FeaturedItem` 增可选 `image`/`imageAlt` 字段 |
+| `src/content/site.zh.ts` / `site.en.ts` | 代表作条目替换：土壤张力传感器 → **Falco — Windows Optimizer**（原创双语描述）；CTA → `https://github.com/Leo1968/Falco`，文案"在 GitHub 查看 / View on GitHub"；**公告栏同步**更新代表作引述 |
+| `src/sections/home/FeaturedSection.tsx` | 支持 `image` 渲染：全宽 `reveal-media`（缩放进入动效）+ 发丝线边框 + `loading="lazy"` + 固定 1600×1197 防 CLS；无图条目回退原纯文字版式 |
+
+### Verification
+
+- tsc ✅ / vitest 13 ✅（zh/en 对齐测试随 id 同步替换通过）/ build ✅
+- Playwright 实测：`a[href="https://github.com/Leo1968/Falco"]` 唯一存在 ✓；图片可见且加载完成 ✓
+- 证据：`tools/reference/preview-featured-falco.png`
+
+### Gate 影响
+
+无 Gate 降级：功能契约零变化（既有 cta/social 事件 schema 复用），视觉语法沿用 VISUAL_RULES（编号聚光 + media scale + 发丝线）。旧"土壤张力传感器"条目可随时经 git 历史恢复。

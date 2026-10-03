@@ -21,7 +21,7 @@ export const siteZh: SiteContent = {
   announcement: {
     items: [
       "58begin 视觉系统 1.1 上线——同一业务，更清晰的表达",
-      "代表作：土壤张力传感器（专利 ZL202211359507.7）",
+      "代表作：Falco — Windows 优化工具（开源）",
       "课程与商务合作，欢迎从页面底部入口联系"
     ]
   },
@@ -73,12 +73,14 @@ export const siteZh: SiteContent = {
     title: "代表作",
     items: [
       {
-        id: "book-1",
-        title: "土壤张力传感器 ZL202211359507.7",
+        id: "falco",
+        title: "Falco — Windows 优化工具",
         description:
-          "以土壤张力作为植物吸水能力的核心表征指标，通过低成本传感器持续监测根区水分动态，实现从“经验灌溉”向“按需灌溉”的精准转变，为智慧农业提供关键数据基础。",
-        ctaText: "了解与购买",
-        ctaHref: "https://example.com"
+          "一款 Windows 桌面优化工具：健康评分与实时监控（CPU / GPU / 内存 / 网络 / 温度），一键加速、深度清理与启动项管理，让老机器也能保持高性能。",
+        image: "/falco-windows-optimizer.png",
+        imageAlt: "Falco 主界面截图：健康评分、硬件监控与一键优化",
+        ctaText: "在 GitHub 查看",
+        ctaHref: "https://github.com/Leo1968/Falco"
       }
     ]
   },

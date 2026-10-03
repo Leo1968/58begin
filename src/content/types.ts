@@ -17,6 +17,8 @@ export type FeaturedItem = {
   id: string;
   title: string;
   description: string;
+  image?: string;
+  imageAlt?: string;
   ctaText: string;
   ctaHref: string;
 };

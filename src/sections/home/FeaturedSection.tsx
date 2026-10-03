@@ -16,43 +16,59 @@ export function FeaturedSection({
         {featured.items.map((it, i) => (
           <div
             key={it.id}
-            className="reveal grid gap-6 border-t border-border py-10 lg:grid-cols-[140px_1fr_auto] lg:items-start"
+            className="reveal border-t border-border py-10"
             style={{ "--reveal-delay": `${i * 90}ms` } as CSSProperties}
           >
-            <div
-              aria-hidden="true"
-              className="font-accent text-[clamp(28px,6vw,40px)] leading-none text-fg"
-            >
-              {String(i + 1).padStart(2, "0")}
-            </div>
-            <div className="max-w-[720px]">
-              <div className="font-display text-2xl font-bold tracking-tight text-fg">
-                {it.title}
-              </div>
-              <div className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
-                {it.description}
-              </div>
-            </div>
-            <div className="lg:pt-2">
-              <TrackedLink
-                href={it.ctaHref}
-                tracking={{
-                  type: "cta",
-                  id: `featured_${it.id}`,
-                  text: it.ctaText,
-                  section: "featured"
-                }}
-                className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
+            <div className="grid gap-6 lg:grid-cols-[140px_1fr_auto] lg:items-start">
+              <div
+                aria-hidden="true"
+                className="font-accent text-[clamp(28px,6vw,40px)] leading-none text-fg"
               >
-                {it.ctaText}
-                <span
-                  aria-hidden="true"
-                  className="transition-transform duration-200 group-hover:translate-x-0.5"
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div className="max-w-[720px]">
+                <div className="font-display text-2xl font-bold tracking-tight text-fg">
+                  {it.title}
+                </div>
+                <div className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                  {it.description}
+                </div>
+              </div>
+              <div className="lg:pt-2">
+                <TrackedLink
+                  href={it.ctaHref}
+                  tracking={{
+                    type: "cta",
+                    id: `featured_${it.id}`,
+                    text: it.ctaText,
+                    section: "featured"
+                  }}
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
                 >
-                  →
-                </span>
-              </TrackedLink>
+                  {it.ctaText}
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                </TrackedLink>
+              </div>
             </div>
+
+            {it.image ? (
+              <div className="reveal-media mt-8 border border-border bg-card">
+                <img
+                  src={it.image}
+                  alt={it.imageAlt ?? it.title}
+                  width={1600}
+                  height={1197}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full"
+                />
+              </div>
+            ) : null}
           </div>
         ))}
       </div>

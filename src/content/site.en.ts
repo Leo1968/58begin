@@ -21,7 +21,7 @@ export const siteEn: SiteContent = {
   announcement: {
     items: [
       "58begin visual system 1.1 is live — same business, clearer expression",
-      "Featured work: Soil Tension Sensor (Patent ZL202211359507.7)",
+      "Featured work: Falco — Windows Optimizer (open source)",
       "Courses and partnerships — reach out via the footer below"
     ]
   },
@@ -78,12 +78,14 @@ export const siteEn: SiteContent = {
     title: "Featured",
     items: [
       {
-        id: "book-1",
-        title: "Soil Tension Sensor ZL202211359507.7",
+        id: "falco",
+        title: "Falco — Windows Optimizer",
         description:
-          "Uses soil tension as a core indicator of plants’ water uptake capacity. By continuously monitoring root-zone moisture dynamics with a low-cost sensor, it enables a precise shift from experience-based irrigation to on-demand irrigation, providing critical data infrastructure for smart agriculture.",
-        ctaText: "Learn & buy",
-        ctaHref: "https://example.com"
+          "A Windows desktop optimizer: health score and real-time monitoring (CPU / GPU / memory / network / temperature), one-click boost, deep clean, and startup management to keep older machines running at high performance.",
+        image: "/falco-windows-optimizer.png",
+        imageAlt: "Falco main window: health score, hardware monitoring, and one-click tuning",
+        ctaText: "View on GitHub",
+        ctaHref: "https://github.com/Leo1968/Falco"
       }
     ]
   },
