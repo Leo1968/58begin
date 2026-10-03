@@ -58,6 +58,9 @@ export type SiteContent = {
     brand: string;
     sections: { id: string; label: string }[];
   };
+  announcement: {
+    items: string[];
+  };
   hero: {
     kicker: string;
     title: string;
@@ -66,6 +69,7 @@ export type SiteContent = {
     secondaryCta: { text: string; href: string };
   };
   metrics: Metric[];
+  trustBadges: { label: string; detail: string }[];
   about: {
     title: string;
     mission: { title: string; body: string };
@@ -111,6 +115,12 @@ export type SiteContent = {
       errorText: string;
       intents: { value: "course" | "consulting" | "partnership" | "other"; label: string }[];
     };
+  };
+  closingCta: {
+    title: string;
+    subtitle: string;
+    primaryCta: { text: string; href: string };
+    secondaryCta: { text: string; href: string };
   };
   posts: {
     title: string;

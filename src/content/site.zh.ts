@@ -18,6 +18,13 @@ export const siteZh: SiteContent = {
       { id: "contact", label: "联系" }
     ]
   },
+  announcement: {
+    items: [
+      "58begin 视觉系统 1.1 上线——同一业务，更清晰的表达",
+      "代表作：土壤张力传感器（专利 ZL202211359507.7）",
+      "课程与商务合作，欢迎从页面底部入口联系"
+    ]
+  },
   hero: {
     kicker: "你好，我是",
     title: "58begin",
@@ -30,6 +37,11 @@ export const siteZh: SiteContent = {
     { label: "发明专利", value: "5" },
     { label: "开发项目", value: "11" },
     { label: "满意度", value: "9.3/10" }
+  ],
+  trustBadges: [
+    { label: "硬件 × AI 双重背景", detail: "11 个落地项目" },
+    { label: "发明专利 5 项", detail: "医疗器械方向" },
+    { label: "合作满意度 9.3/10", detail: "来自真实合作反馈" }
   ],
   about: {
     title: "关于 58begin",
@@ -164,6 +176,12 @@ export const siteZh: SiteContent = {
         { value: "other", label: "其他" }
       ]
     }
+  },
+  closingCta: {
+    title: "把不可能，变成下一步。",
+    subtitle: "从一次对话开始：课程、合作，或只是一个好问题。",
+    primaryCta: { text: "开始沟通", href: "#contact" },
+    secondaryCta: { text: "阅读最新内容", href: "#content" }
   },
   posts: {
     title: "内容",

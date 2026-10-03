@@ -1,11 +1,12 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "outline-invert" | "text-arrow";
 
 export function Button({
   className,
   variant = "primary",
+  children,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
   return (
@@ -19,10 +20,23 @@ export function Button({
           "border border-border bg-card text-fg hover:bg-fg/5 active:bg-fg/10",
         variant === "ghost" &&
           "text-fg hover:bg-fg/5 active:bg-fg/10",
+        variant === "outline-invert" &&
+          "border border-fg bg-transparent text-fg hover:bg-fg hover:text-bg active:bg-fg/90",
+        variant === "text-arrow" &&
+          "group bg-transparent px-0 py-1 text-fg hover:bg-transparent active:bg-transparent",
         className
       )}
       {...props}
-    />
+    >
+      {children}
+      {variant === "text-arrow" ? (
+        <span
+          aria-hidden="true"
+          className="transition-transform duration-200 group-hover:translate-x-0.5"
+        >
+          →
+        </span>
+      ) : null}
+    </button>
   );
 }
-

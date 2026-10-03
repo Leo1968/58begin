@@ -18,6 +18,13 @@ export const siteEn: SiteContent = {
       { id: "contact", label: "Contact" }
     ]
   },
+  announcement: {
+    items: [
+      "58begin visual system 1.1 is live — same business, clearer expression",
+      "Featured work: Soil Tension Sensor (Patent ZL202211359507.7)",
+      "Courses and partnerships — reach out via the footer below"
+    ]
+  },
   hero: {
     kicker: "Hi, I'm",
     title: "58begin",
@@ -30,6 +37,11 @@ export const siteEn: SiteContent = {
     { label: "Invention patents", value: "5" },
     { label: "Projects delivered", value: "11" },
     { label: "Satisfaction", value: "9.3/10" }
+  ],
+  trustBadges: [
+    { label: "Hardware × AI background", detail: "11 delivered projects" },
+    { label: "5 invention patents", detail: "Medical device focus" },
+    { label: "9.3/10 partner satisfaction", detail: "From real collaborations" }
   ],
   about: {
     title: "About 58begin",
@@ -173,6 +185,12 @@ export const siteEn: SiteContent = {
         { value: "other", label: "Other" }
       ]
     }
+  },
+  closingCta: {
+    title: "Turn the impossible into your next step.",
+    subtitle: "Start with one conversation: a course, a partnership, or just a good question.",
+    primaryCta: { text: "Start a conversation", href: "#contact" },
+    secondaryCta: { text: "Read the latest posts", href: "#content" }
   },
   posts: {
     title: "Content",

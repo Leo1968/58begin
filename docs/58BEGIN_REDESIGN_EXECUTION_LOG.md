@@ -118,3 +118,49 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Next-stage recommendation
 
 进入 P2（Global Shell：AnnouncementTicker + 深色 SiteNav + 4 栏深色 Footer + Button 变体 + content 新字段）。
+
+---
+
+## P2 — Global Shell（2026-10-03）
+
+### Changed files
+
+| 文件 | 变更 | 原因 |
+|---|---|---|
+| `src/content/types.ts` | `SiteContent` 新增 `announcement` / `trustBadges` / `closingCta` 三个原创双语字段类型 | G8/G12，方案 7 节授权的字段扩展 |
+| `src/content/site.zh.ts` / `site.en.ts` | 三个字段的双语原创文案（zh/en 同 commit） | 58begin 自有品牌语气，零参考站文案 |
+| `src/content/siteContentAlignment.test.ts` | 新增对齐断言（announcement 条数、trustBadges 结构、closingCta 键完整性） | R5 缓解 |
+| `src/components/AnnouncementTicker.tsx` | **新增**：深色 CSS marquee 公告栏（双拷贝循环 + `aria-hidden` 第二拷贝 + `motion-reduce:animate-none` 静态化） | G8 |
+| `src/components/AnnouncementTicker.test.tsx` | **新增**：双语渲染 + marquee 结构/无障碍单测 | 9.4 |
+| `src/components/SiteNav.tsx` | 深色化（`bg-header-bg/95` + `border-header-border` + white/10 悬停态）；新增 `aria-expanded`/`aria-controls`/`id` 与 **Escape 关闭移动菜单**；语言切换按钮文案与锚点行为保持不变 | G2；e2e 依赖保护 |
+| `src/components/PageShell.tsx` | 页脚重构为**深色四栏**（品牌+简介 / 站点导航 / 社交 / 联系与声明）+ 版权条；`<AnnouncementTicker/>` 挂载在导航之上（不吸顶，随页滚动） | G2/G15 |
+| `src/components/Button.tsx` | 新增 `outline-invert`（描边→悬停实心反转）与 `text-arrow`（箭头文字链接，hover 箭头右移）两变体；原三变体不动 | G5 |
+| `src/components/Container.tsx` | `max-w-[1200px]` → `max-w-site`(1440px) + 响应式 padding（20/32/40px） | G7 |
+| `src/components/RainbowProgress.tsx` | **新增**（rAF + passive scroll，`motion-reduce:hidden`）；**默认关闭、未挂载**，待 Gate 2 批准后启用 | G13（受控） |
+
+### Tests executed
+
+- `npm run check`：✅ 0 error
+- `npm run lint`：与 P1 基线持平（仅主干既有 5 error + 4 warning，均在未触碰文件）
+- `npm test`：✅ 4 files / 9 tests 全绿（新增 2 例 AnnouncementTicker；首版测试直接调 `setLang` 未包 `act()` 导致 1 失败，已修正测试自身后通过——业务代码未为此改动）
+- `npm run build`：✅
+- `npx playwright test --project=chromium --project=webkit`：✅ 4 passed（firefox 引擎本机环境性不可启动，见 P0 偏差记录；P6 复核）
+- `node tools/capture-local.mjs`（preview 4173）：5 路由 × 3 视口，**横向溢出全部 0px**
+
+### Visual evidence
+
+- `tools/reference/p2/p2-shell-home-mobile.png`：深色公告栏 + 深色吸顶导航 + 白色正文 + 深色四栏页脚，三明治结构成型
+- 桌面/平板同结构（`tools/reference/p2/` 共 15 张）
+
+### Known deviations
+
+1. `RainbowProgress` 组件就绪但未挂载（V1.1 P2 要求"默认关闭"，启用决策留给 Gate 2/人工批准）。
+2. e2e 本阶段运行 chromium + webkit 两引擎（firefox 环境性问题延续 P0 记录）。
+
+### Gate 1 result（Functional）: **PASS**
+
+- 路由 100% 可访问（5 路由截图）✓；导航/锚点/语言切换 100%（e2e + 单测）✓；LeadForm/QR Modal 契约未动（ContactSection 本阶段零改动）✓；analytics event schema 未变（未新增事件名/未改 payload）✓；zh/en 内容结构测试通过（含新字段）✓
+
+### Next-stage recommendation
+
+进入 P3（首页分区重组）。SectionHeading/Hero/Featured/Products/Tools/About/Culture/Content/Contact/ClosingCta 按序执行，每段双语走查。
