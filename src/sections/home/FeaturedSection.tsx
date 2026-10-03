@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { cn } from "@/lib/utils";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -56,17 +57,29 @@ export function FeaturedSection({
               </div>
             </div>
 
-            {it.image ? (
-              <div className="reveal-media mt-8 border border-border bg-card">
-                <img
-                  src={it.image}
-                  alt={it.imageAlt ?? it.title}
-                  width={1600}
-                  height={1197}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-auto w-full"
-                />
+            {it.images?.length ? (
+              <div
+                className={cn(
+                  "mt-8 grid gap-4",
+                  it.images.length > 1 && "sm:grid-cols-2"
+                )}
+              >
+                {it.images.map((img) => (
+                  <div
+                    key={img.src}
+                    className="reveal-media border border-border bg-card"
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      width={img.width}
+                      height={img.height}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-auto w-full"
+                    />
+                  </div>
+                ))}
               </div>
             ) : null}
           </div>

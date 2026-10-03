@@ -77,8 +77,20 @@ export const siteZh: SiteContent = {
         title: "Falco — Windows 优化工具",
         description:
           "一款 Windows 桌面优化工具：健康评分与实时监控（CPU / GPU / 内存 / 网络 / 温度），一键加速、深度清理与启动项管理，让老机器也能保持高性能。",
-        image: "/falco-windows-optimizer.png",
-        imageAlt: "Falco 主界面截图：健康评分、硬件监控与一键优化",
+        images: [
+          {
+            src: "/falco-optimizer-dark.png",
+            alt: "Falco 深色主题主界面：健康评分、硬件监控与一键优化",
+            width: 1280,
+            height: 952
+          },
+          {
+            src: "/falco-optimizer-light.png",
+            alt: "Falco 浅色主题主界面：世界名画画廊组件",
+            width: 1280,
+            height: 958
+          }
+        ],
         ctaText: "在 GitHub 查看",
         ctaHref: "https://github.com/Leo1968/Falco"
       }

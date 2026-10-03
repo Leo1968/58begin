@@ -82,8 +82,20 @@ export const siteEn: SiteContent = {
         title: "Falco — Windows Optimizer",
         description:
           "A Windows desktop optimizer: health score and real-time monitoring (CPU / GPU / memory / network / temperature), one-click boost, deep clean, and startup management to keep older machines running at high performance.",
-        image: "/falco-windows-optimizer.png",
-        imageAlt: "Falco main window: health score, hardware monitoring, and one-click tuning",
+        images: [
+          {
+            src: "/falco-optimizer-dark.png",
+            alt: "Falco dark theme: health score, hardware monitoring, and one-click tuning",
+            width: 1280,
+            height: 952
+          },
+          {
+            src: "/falco-optimizer-light.png",
+            alt: "Falco light theme: world art gallery widget",
+            width: 1280,
+            height: 958
+          }
+        ],
         ctaText: "View on GitHub",
         ctaHref: "https://github.com/Leo1968/Falco"
       }
