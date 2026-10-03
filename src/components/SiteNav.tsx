@@ -73,9 +73,9 @@ export function SiteNav({
               <img
                 src="/pegasus-mark.png"
                 alt=""
-                width={520}
-                height={452}
-                className="h-[27px] w-auto"
+                width={412}
+                height={357}
+                className="h-[26px] w-auto"
               />
             </span>
             <span className="font-display text-lg font-bold tracking-tight text-header-fg">
