@@ -54,7 +54,7 @@ export const siteEn: SiteContent = {
     },
     paragraphs: [
       "This is the official site for 58begin. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together.",
-      "I believe: the reason something feels impossible is simply because you haven't done it yet."
+      "I believe: what seems impossible to the world may simply be something you have never tried to do."
     ],
     highlights: [
       "Hardware positioning",
