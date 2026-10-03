@@ -1,0 +1,30 @@
+github:
+  repo: "Leo1968/58begin"
+  branch: "main"
+  token: ""
+  workflow: "deploy.yml"
+
+site:
+  base_url: "https://www.58begin.com"
+  health_path: "/api/health"
+  timeout_seconds: 20
+
+sync:
+  mode: "incremental"
+  state_file: ".58begin_sync_state.json"
+  log_file: "58begin_sync.log"
+  snapshot_dir: ""
+  request_timeout_seconds: 20
+  poll_interval_seconds: 5
+  poll_timeout_seconds: 900
+  include_globs:
+    - "src/**"
+    - "api/**"
+    - "public/**"
+    - "docs/**"
+    - "package.json"
+    - "package-lock.json"
+    - "vite.config.ts"
+    - "wrangler.toml"
+  exclude_globs:
+    - "**/*.md"
