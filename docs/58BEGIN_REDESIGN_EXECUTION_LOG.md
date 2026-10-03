@@ -330,3 +330,14 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Gate 影响
 
 无 Gate 降级：功能契约零变化（既有 cta/social 事件 schema 复用），视觉语法沿用 VISUAL_RULES（编号聚光 + media scale + 发丝线）。旧"土壤张力传感器"条目可随时经 git 历史恢复。
+
+---
+
+## P7 — Release（2026-10-03，人工批准后执行）
+
+- PR #3（restyle/visual-redesign-v1.1 → main，43+ 文件）经所有者批准合并（merge commit `60296e7`）；合并后所有者又以逐条指令驱动 12 轮迭代（Falco 代表作、官方品牌图标、Skywalker Labs 品牌、知识库、间距两轮收紧等），全部直接提交 main 并推送。
+- **GitHub Actions 部署失败（既有问题）**：仓库无 `CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID` secrets（`gh secret list` 为空，8 月初起即如此），CI 侧部署不可用。
+- **生产发布改经本机 wrangler OAuth**：`npx wrangler deploy --env production` → Worker `58begin-web` 版本 `02495330-9c4b-4d8b-9328-f39643af2e47`，自定义域 58begin.com 立即生效。
+- **线上验证**：`/api/health` {"ok":true}；meta description 为新文案；zh 首页导航飞马 logo / 新公告栏文案 / X 真实链接 ×2 / 巨标题均在；页脚 © 2026 Skywalker Labs + 志存高远 tagline + 反白 logo 均在；/posts 200、favicon 200。
+- **回滚路径**（如需）：`npx wrangler rollback`（秒级回退到上一 Worker 版本）或 `git revert` 对应提交后重新本地部署。
+- **遗留**：① 恢复 push 自动部署需在 Cloudflare 面板创建 API Token（Edit Workers 模板）并 `gh secret set CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID`；② 小红书/抖音/YouTube/B 站四个社交图标仍为占位链接；③ 远端存在分支 `update_worker_name_to_58begin-web`（来源待所有者确认）。
