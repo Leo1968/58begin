@@ -160,19 +160,20 @@ export const siteEn: SiteContent = {
     title: "Tools & Projects",
     items: [
       {
-        id: "tool-1",
-        title: "CoverMagic",
-        type: "Web App",
+        id: "falco",
+        title: "Falco",
+        type: "Windows App · Open Source",
         description:
-          "Enter a title and style to generate platform-ready cover images in one click.",
-        href: "https://example.com"
+          "A Windows desktop optimizer: health score, real-time hardware monitoring, and one-click boost to keep older machines fast.",
+        href: "https://github.com/Leo1968/Falco"
       },
       {
-        id: "tool-2",
-        title: "X Reply Helper",
-        type: "Chrome Extension",
-        description: "Helps you generate more natural replies in the other person's language.",
-        href: "https://example.com"
+        id: "root-nutrient-uptake",
+        title: "Root Nutrient Uptake",
+        type: "Open Source",
+        description:
+          "Monitoring and research around root nutrient uptake: from soil tension sensing to data analysis.",
+        href: "https://github.com/Leo1968/Root-nutrient-uptake"
       }
     ]
   },

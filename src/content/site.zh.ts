@@ -153,18 +153,18 @@ export const siteZh: SiteContent = {
     title: "工具与项目",
     items: [
       {
-        id: "tool-1",
-        title: "CoverMagic",
-        type: "Web App",
-        description: "输入标题与风格，一键生成平台适配的封面图。",
-        href: "https://example.com"
+        id: "falco",
+        title: "Falco",
+        type: "Windows 应用 · 开源",
+        description: "Windows 桌面优化工具：健康评分、硬件实时监控与一键加速，让老机器保持高性能。",
+        href: "https://github.com/Leo1968/Falco"
       },
       {
-        id: "tool-2",
-        title: "X Reply Helper",
-        type: "Chrome Extension",
-        description: "帮助你用对方语种生成更自然的回复。",
-        href: "https://example.com"
+        id: "root-nutrient-uptake",
+        title: "Root Nutrient Uptake",
+        type: "开源项目",
+        description: "围绕根系养分吸收的监测与研究：从土壤张力传感到数据分析。",
+        href: "https://github.com/Leo1968/Root-nutrient-uptake"
       }
     ]
   },
