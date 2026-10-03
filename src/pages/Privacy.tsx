@@ -25,9 +25,12 @@ export default function Privacy() {
 
   return (
     <PageShell>
-      <Container className="py-14">
+      <Container className="py-16 sm:py-24">
         <div className="max-w-[860px]">
-          <h1 className="font-display text-4xl font-semibold tracking-tight text-fg">
+          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+            {lang === "zh" ? "法律声明" : "Legal"}
+          </div>
+          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl">
             {content.privacy.title}
           </h1>
           <div className="mt-6">
@@ -35,7 +38,7 @@ export default function Privacy() {
               remarkPlugins={[remarkGfm]}
               components={{
                 h2: ({ children }) => (
-                  <h2 className="mt-10 font-display text-2xl font-semibold tracking-tight text-fg">
+                  <h2 className="mt-10 font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl">
                     {children}
                   </h2>
                 ),
