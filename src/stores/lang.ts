@@ -23,12 +23,22 @@ export const useLangStore = create<LangState>((set, get) => ({
   lang: detectDefaultLang(),
   setLang: (lang) => {
     localStorage.setItem("lang", lang);
+    syncDocumentLang(lang);
     set({ lang });
   },
   toggleLang: () => {
     const next = get().lang === "zh" ? "en" : "zh";
     localStorage.setItem("lang", next);
+    syncDocumentLang(next);
     set({ lang: next });
   }
 }));
+
+// Keep <html lang> in step with the UI language (a11y requirement; UI side effect only —
+// the store's data contract is unchanged).
+function syncDocumentLang(lang: Lang) {
+  document.documentElement.lang = lang;
+}
+
+syncDocumentLang(useLangStore.getState().lang);
 

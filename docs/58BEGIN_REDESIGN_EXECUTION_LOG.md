@@ -67,3 +67,54 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Next-stage recommendation
 
 进入 P1（Design Tokens & Global Layer）。P1 将依据 Track B 实测值 + 方案第 17 节 Visual Rules 落地 token。
+
+---
+
+## P1 — Design Tokens & Global Layer（2026-10-03）
+
+### Changed files
+
+| 文件 | 变更 | 原因 |
+|---|---|---|
+| `src/index.css` | 7 个语义 token 重定义（bg 纯白、fg 黑、border 黑@10%、muted 黑@60%、accent #2a66c4、accent-2 #965096）+ 新增 `--header-bg/--header-fg/--header-border/--footer-text/--surface-2/3/4/--accent-spectrum` + `.reveal`/`.reveal-media` 动效基元（含 reduced-motion 降级） | 方案 G1/G2/G13/G14；值全部来自 Track B 实测与 §17 Visual Rules |
+| `tailwind.config.js` | 同步映射新 token（pinned alpha）；`fontFamily.display` 换系统无衬线栈 + 新增 `accent`(Silkscreen)；`maxWidth.site: 1440px`；`bgImage.spectrum`；keyframes/animation `marquee` | G3/G7/G8 |
+| `index.html` | Google Fonts 仅保留 Silkscreen（移除 IBM Plex Sans + Newsreader 双字重请求） | G3/G4；正文改系统栈，减请求、降 CLS |
+| `src/stores/lang.ts` | 增加不改变数据契约的 UI side effect：`setLang/toggleLang/初始` 时同步 `document.documentElement.lang` | 方案 7 节明确允许的唯一 store 改动；Gate 3 `<html lang>` 要求 |
+| `eslint.config.js` | ignores 追加 `tools/vendor/**`、`tools/reference/**` | §5.6 隔离：vendored 仓库源码不得进入本项目工具链（此前 lint 扫到其 src 产生 2 条外部 warning） |
+
+### Token diff（旧 → 新）
+
+| token | 旧 | 新 |
+|---|---|---|
+| `--bg` | 252 252 250 暖白 | 255 255 255 纯白 |
+| `--fg` | 17 17 17 | 0 0 0 |
+| `--muted` | 118 118 118 实色 | 0 0 0 @60%（实测 rgba(0,0,0,.6)） |
+| `--border` | 227 227 225 实色 | 0 0 0 @10%（发丝线） |
+| `--accent` | 225 70 12 橙红 | 42 102 196（实测 #2a66c4） |
+| `--accent-2` | 29 79 167 | 150 80 150（实测 #965096） |
+| 新增 | — | header-bg #1e1e1e、header-fg #fff、header-border @15%、footer-text #b9b9b9、surface-2/3/4 @8/4/2%、accent-spectrum 渐变 |
+
+映射安全审计：`muted`/`border` 在 src 中零 alpha 修饰符使用（pinned 渲染安全）；`accent` 系存在 `ring-accent/40` 等 7 处，故保持 `<alpha-value>` 映射。
+
+### Tests executed
+
+- `npm run check`（tsc）：✅ 0 error
+- `npm run lint`：改前 5 error + 6 warning → 改后 **5 error + 4 warning**；**本次变更文件零 lint 问题**。残留问题全部为主干既有债务（5 error = `api/src/lead.test.ts` 的 no-explicit-any；4 warning = `useActiveSection.ts`/`useSectionTracking.ts` 的 exhaustive-deps），均在未触碰文件上、改动前即存在；依据 12.1（不改 api/**）与 11.1.3（最小变更）不越界修复，如实记录。
+- `npm test`（vitest）：✅ 3 files / 6 tests 全绿
+- `npm run build`：✅（CSS 32.65kB，无 404 资源）
+- `node tools/capture-local.mjs`（preview 4173）：5 路由 × 3 视口 = 15 张，**横向溢出全部 0px**
+
+### Visual evidence
+
+`tools/reference/p1/p1-tokens-home-desktop.png` vs `tools/reference/baseline/p0-baseline-home-desktop.png` 并排比对：**布局/分区/结构逐段一致，仅色彩/字体换轨**（"换色不换版" 达成）。字体回退链含 PingFang SC/微软雅黑，zh 文案不受 Silkscreen/系统栈影响。
+
+### Known deviations
+
+1. lint 既有债务（见上）——方案 9.1 "0 error/0 warning" 的基线前提与实际主干状态不符；本 Gate 按 "变更文件零新增问题" 执行，主干债务移交 P6 处理决策（或经批准后豁免）。
+2. Firefox e2e 引擎环境不可启动（P0 已记录），本阶段以 tsc/lint/vitest/build/截图为准。
+
+### Gate 1 result（基础检查）: **PASS**
+
+### Next-stage recommendation
+
+进入 P2（Global Shell：AnnouncementTicker + 深色 SiteNav + 4 栏深色 Footer + Button 变体 + content 新字段）。
