@@ -25,7 +25,7 @@ export const siteEn: SiteContent = {
     kicker: "Hi, I'm",
     title: "58begin",
     subtitle:
-      "｜A new chapter for an old soul｜An unknown product manager, a seasoned hardware veteran.",
+      "A new chapter for an old soul · An unknown product manager, a seasoned hardware veteran.",
     primaryCta: { text: "View products & services", href: "#products" },
     secondaryCta: { text: "Explore featured work", href: "#featured" }
   },
@@ -89,7 +89,7 @@ export const siteEn: SiteContent = {
         id: "iap",
         title: "IAP",
         description:
-          "A complete embedded hardware design built around an LQFP64 MCU, integrating a communication module, audio unit, and multiple external interfaces. Shown as a 3D render preview.",
+          "A complete embedded hardware design built around an LQFP64 MCU, integrating a communication module, audio unit, and multiple external interfaces. Shown as a 3D render.",
         images: [
           {
             src: "/iap-pcb-3d.png",
@@ -126,7 +126,7 @@ export const siteEn: SiteContent = {
       {
         id: "odm",
         title: "ODM (Medical Devices)",
-        positioning: "Build your own brand medical devices, fast",
+        positioning: "Build your own-brand medical devices, fast",
         description:
           "Product design, software & hardware development, algorithms, and supply chain integration to accelerate the path from R&D to mass production.",
         ctaText: "View ODM products",
@@ -167,7 +167,7 @@ export const siteEn: SiteContent = {
   contact: {
     title: "Contact",
     description:
-      "If you'd like to inquire about courses or discuss partnerships, feel free to reach out via the channels below.",
+      "If you'd like to discuss development consulting, ODM, market analysis, or partnerships, feel free to reach out via the channels below.",
     email: "hello@58begin.com",
     wechatLabel: "Scan to add WeChat",
     wechatQr: {
@@ -196,7 +196,7 @@ export const siteEn: SiteContent = {
   },
   closingCta: {
     title: "Turn the impossible into your next step.",
-    subtitle: "Start with one conversation: a course, a partnership, or just a good question.",
+    subtitle: "Start with one conversation: consulting, ODM, market analysis, or just a good question.",
     primaryCta: { text: "Start a conversation", href: "#contact" },
     secondaryCta: { text: "Read the latest posts", href: "/posts" }
   },

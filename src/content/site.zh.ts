@@ -159,7 +159,7 @@ export const siteZh: SiteContent = {
   },
   contact: {
     title: "联系我",
-    description: "如果你想咨询学习或洽谈合作，欢迎通过以下方式联系我。",
+    description: "如果你有开发咨询、ODM、市场分析或商务合作需求，欢迎通过以下方式联系我。",
     email: "hello@58begin.com",
     wechatLabel: "扫码添加微信",
     wechatQr: {
@@ -188,7 +188,7 @@ export const siteZh: SiteContent = {
   },
   closingCta: {
     title: "把不可能，变成下一步。",
-    subtitle: "从一次对话开始：课程、合作，或只是一个好问题。",
+    subtitle: "从一次对话开始：咨询、合作，或只是一个好问题。",
     primaryCta: { text: "开始沟通", href: "#contact" },
     secondaryCta: { text: "阅读最新内容", href: "/posts" }
   },
