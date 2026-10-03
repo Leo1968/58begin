@@ -31,9 +31,13 @@ export function PageShell({
       <footer className="border-t border-header-border bg-header-bg text-footer-text">
         <Container className="grid gap-10 py-14 sm:grid-cols-2">
           <div>
-            <div className="font-display text-lg font-bold tracking-tight text-header-fg">
-              {content.nav.brand}
-            </div>
+            <img
+              src="/footer-logo.png"
+              alt={content.nav.brand}
+              width={720}
+              height={691}
+              className="h-16 w-auto"
+            />
             <p className="mt-3 text-sm leading-relaxed text-footer-text/80">
               {content.seo.description}
             </p>

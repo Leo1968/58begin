@@ -66,9 +66,21 @@ export function SiteNav({
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="font-display text-lg font-bold tracking-tight text-header-fg"
+            className="flex items-center gap-2.5"
+            aria-label={content.nav.brand}
           >
-            {content.nav.brand}
+            <span className="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-white">
+              <img
+                src="/pegasus-mark.png"
+                alt=""
+                width={80}
+                height={68}
+                className="h-7 w-auto"
+              />
+            </span>
+            <span className="font-display text-lg font-bold tracking-tight text-header-fg">
+              {content.nav.brand}
+            </span>
           </Link>
           <div className="hidden items-center gap-1 md:flex">
             {items.map((it) => (
