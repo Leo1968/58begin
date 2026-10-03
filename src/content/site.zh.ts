@@ -20,9 +20,8 @@ export const siteZh: SiteContent = {
   },
   announcement: {
     items: [
-      "58begin 视觉系统 1.1 上线——同一业务，更清晰的表达",
-      "代表作：Falco — Windows 优化工具（开源）",
-      "课程与商务合作，欢迎从页面底部入口联系"
+      "58begin——你觉得世界上不可能的事，是因为你没有去做。",
+      "商务合作，欢迎从页面底部入口联系。"
     ]
   },
   hero: {

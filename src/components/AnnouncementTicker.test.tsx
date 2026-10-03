@@ -12,10 +12,10 @@ describe("AnnouncementTicker", () => {
 
   it("renders zh announcement items and follows language switch", () => {
     render(<AnnouncementTicker />);
-    expect(screen.getAllByText(/视觉系统 1\.1/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/不可能的事/).length).toBeGreaterThan(0);
 
     act(() => useLangStore.getState().setLang("en"));
-    expect(screen.getAllByText(/visual system 1\.1/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/impossible/).length).toBeGreaterThan(0);
   });
 
   it("duplicates items for the seamless marquee loop but hides the copy from AT", () => {

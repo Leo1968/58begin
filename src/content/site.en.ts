@@ -20,9 +20,8 @@ export const siteEn: SiteContent = {
   },
   announcement: {
     items: [
-      "58begin visual system 1.1 is live — same business, clearer expression",
-      "Featured work: Falco — Windows Optimizer (open source)",
-      "Courses and partnerships — reach out via the footer below"
+      "58begin — The reason something feels impossible is simply because you haven't done it yet.",
+      "Open to business partnerships — reach out via the footer below."
     ]
   },
   hero: {
