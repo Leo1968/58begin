@@ -7,7 +7,6 @@ import { getSiteContent } from "@/content";
 import { Container } from "./Container";
 import { SiteNav } from "./SiteNav";
 import { AnnouncementTicker } from "./AnnouncementTicker";
-import { BrandIcon } from "./BrandIcons";
 
 export function PageShell({
   activeSectionId,
@@ -36,7 +35,7 @@ export function PageShell({
       <main>{children}</main>
 
       <footer className="border-t border-header-border bg-header-bg text-footer-text">
-        <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-3">
           <div>
             <div className="font-display text-lg font-bold tracking-tight text-header-fg">
               {content.nav.brand}
@@ -60,31 +59,6 @@ export function PageShell({
               ))}
             </ul>
           </nav>
-
-          <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-white/50">
-              {content.findMeOn.title}
-            </div>
-            <ul className="mt-4 grid gap-2 text-sm">
-              {content.findMeOn.items.map((item) => (
-                <li key={item.id}>
-                  <a
-                    className="inline-flex items-center gap-2.5 transition hover:text-white"
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.iconKey ? (
-                      <BrandIcon name={item.iconKey} size={14} />
-                    ) : (
-                      <span>{item.icon}</span>
-                    )}
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-white/50">
