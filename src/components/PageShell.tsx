@@ -7,6 +7,7 @@ import { getSiteContent } from "@/content";
 import { Container } from "./Container";
 import { SiteNav } from "./SiteNav";
 import { AnnouncementTicker } from "./AnnouncementTicker";
+import { BrandIcon } from "./BrandIcons";
 
 export function PageShell({
   activeSectionId,
@@ -68,11 +69,16 @@ export function PageShell({
               {content.findMeOn.items.map((item) => (
                 <li key={item.id}>
                   <a
-                    className="transition hover:text-white"
+                    className="inline-flex items-center gap-2.5 transition hover:text-white"
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    {item.iconKey ? (
+                      <BrandIcon name={item.iconKey} size={14} />
+                    ) : (
+                      <span>{item.icon}</span>
+                    )}
                     {item.label}
                   </a>
                 </li>

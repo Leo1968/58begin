@@ -105,11 +105,11 @@ export const siteEn: SiteContent = {
   findMeOn: {
     title: "Find me here",
     items: [
-      { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕" },
-      { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵" },
-      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦" },
-      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶" },
-      { id: "bilibili", label: "Bilibili", href: "https://example.com", icon: "📺" }
+      { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
+      { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
+      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦", iconKey: "x" },
+      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶", iconKey: "youtube" },
+      { id: "bilibili", label: "Bilibili", href: "https://example.com", icon: "📺", iconKey: "bilibili" }
     ]
   },
   products: {

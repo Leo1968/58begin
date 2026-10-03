@@ -5,6 +5,7 @@ import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TrackedLink } from "@/components/TrackedLink";
+import { BrandIcon, BRAND_COLORS } from "@/components/BrandIcons";
 import { LeadForm } from "@/components/LeadForm";
 import { Modal } from "@/components/Modal";
 import { Toast } from "@/components/Toast";
@@ -101,9 +102,19 @@ export function ContactSection({
                     tracking={{ type: "social", platform: it.label }}
                     aria-label={it.label}
                     title={it.label}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-border bg-bg text-xl transition hover:-translate-y-0.5 hover:bg-fg/5"
+                    className="grid h-11 w-11 place-items-center rounded-full border border-border bg-bg transition hover:-translate-y-0.5 hover:bg-fg/5"
                   >
-                    <span aria-hidden="true">{it.icon}</span>
+                    {it.iconKey ? (
+                      <BrandIcon
+                        name={it.iconKey}
+                        size={20}
+                        color={BRAND_COLORS[it.iconKey]}
+                      />
+                    ) : (
+                      <span aria-hidden="true" className="text-xl">
+                        {it.icon}
+                      </span>
+                    )}
                   </TrackedLink>
                 ))}
               </div>

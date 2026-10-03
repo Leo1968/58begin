@@ -1,5 +1,7 @@
 export type Lang = "zh" | "en";
 
+import type { BrandIconName } from "@/components/BrandIcons";
+
 export type Metric = {
   label: string;
   value: string;
@@ -11,6 +13,7 @@ export type LinkItem = {
   label: string;
   href: string;
   icon?: string;
+  iconKey?: BrandIconName;
 };
 
 export type FeaturedItem = {

@@ -100,11 +100,11 @@ export const siteZh: SiteContent = {
   findMeOn: {
     title: "在这里找到我",
     items: [
-      { id: "rednote", label: "小红书", href: "https://example.com", icon: "📕" },
-      { id: "douyin", label: "抖音", href: "https://example.com", icon: "🎵" },
-      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦" },
-      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶" },
-      { id: "bilibili", label: "哔哩哔哩", href: "https://example.com", icon: "📺" }
+      { id: "rednote", label: "小红书", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
+      { id: "douyin", label: "抖音", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
+      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦", iconKey: "x" },
+      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶", iconKey: "youtube" },
+      { id: "bilibili", label: "哔哩哔哩", href: "https://example.com", icon: "📺", iconKey: "bilibili" }
     ]
   },
   products: {

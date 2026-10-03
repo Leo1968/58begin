@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLangStore } from "@/stores/lang";
 import { getSiteContent } from "@/content";
+import { BrandIcon } from "./BrandIcons";
 
 /**
  * Dark announcement bar, three-segment grammar measured from the reference:
@@ -55,9 +56,13 @@ export function AnnouncementTicker() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="text-sm font-bold tracking-tight text-white/80 transition hover:text-white"
+              className="text-white/80 transition hover:text-white"
             >
-              𝕏
+              {social.iconKey ? (
+                <BrandIcon name={social.iconKey} size={14} />
+              ) : (
+                <span className="text-sm font-bold">𝕏</span>
+              )}
             </a>
           ) : null}
         </div>
