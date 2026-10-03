@@ -108,43 +108,33 @@ export const siteZh: SiteContent = {
   },
   products: {
     title: "产品与服务",
-    groups: [
+    items: [
       {
-        id: "courses",
-        title: "课程项目",
-        items: [
-          {
-            id: "creator-bootcamp",
-            title: "自媒体创业营",
-            description: "从零打造个人品牌，建立可持续的线上商业。",
-            tag: "课程",
-            ctaText: "查看详情",
-            ctaHref: "https://example.com"
-          },
-          {
-            id: "ai-solo",
-            title: "AI 一人公司实战营",
-            description: "用 AI 工具放大效率，实现一人撬动大价值。",
-            tag: "课程",
-            ctaText: "查看详情",
-            ctaHref: "https://example.com"
-          }
-        ]
+        id: "md-consulting",
+        title: "医疗器械开发咨询",
+        positioning: "从概念到上市的专业研发支持",
+        description:
+          "覆盖产品定义、研发、法规、注册与质量体系，帮助医疗器械创新项目高效落地。",
+        ctaText: "查看详情",
+        ctaHref: "#contact"
       },
       {
-        id: "partnership",
-        title: "商务合作",
-        items: [
-          {
-            id: "brand",
-            title: "品牌合作",
-            description:
-              "覆盖高质量受众人群，接受访谈合作、口播视频与内容共创等合作形式。",
-            tag: "合作",
-            ctaText: "提交合作意向",
-            ctaHref: "#contact"
-          }
-        ]
+        id: "odm",
+        title: "ODM（医疗器械产品）",
+        positioning: "快速打造自有品牌医疗器械",
+        description:
+          "提供产品设计、软硬件开发、算法及供应链整合，加速医疗器械产品从研发到量产。",
+        ctaText: "查看 ODM 产品",
+        ctaHref: "#contact"
+      },
+      {
+        id: "market-analysis",
+        title: "市场分析",
+        positioning: "用数据洞察医疗器械商业机会",
+        description:
+          "聚焦市场规模、竞争格局、技术趋势、竞品及商业模式，为产品与投资决策提供依据。",
+        ctaText: "查看分析服务",
+        ctaHref: "#contact"
       }
     ]
   },

@@ -28,16 +28,12 @@ export type FeaturedItem = {
 export type ProductItem = {
   id: string;
   title: string;
+  /** one-line positioning shown right under the title */
+  positioning?: string;
   description: string;
   tag?: string;
-  ctaText: string;
-  ctaHref: string;
-};
-
-export type ProductGroup = {
-  id: string;
-  title: string;
-  items: ProductItem[];
+  ctaText?: string;
+  ctaHref?: string;
 };
 
 export type ToolItem = {
@@ -86,7 +82,7 @@ export type SiteContent = {
   };
   products: {
     title: string;
-    groups: ProductGroup[];
+    items: ProductItem[];
   };
   tools: {
     title: string;

@@ -113,45 +113,33 @@ export const siteEn: SiteContent = {
   },
   products: {
     title: "Products & Services",
-    groups: [
+    items: [
       {
-        id: "courses",
-        title: "Courses",
-        items: [
-          {
-            id: "creator-bootcamp",
-            title: "Creator Bootcamp",
-            description:
-              "Build a personal brand from scratch and set up a sustainable online business.",
-            tag: "Course",
-            ctaText: "View details",
-            ctaHref: "https://example.com"
-          },
-          {
-            id: "ai-solo",
-            title: "AI Solopreneur Practicum",
-            description:
-              "Amplify efficiency with AI tools and create outsized value as a one-person company.",
-            tag: "Course",
-            ctaText: "View details",
-            ctaHref: "https://example.com"
-          }
-        ]
+        id: "md-consulting",
+        title: "Medical Device Development Consulting",
+        positioning: "Professional R&D support from concept to market",
+        description:
+          "Covering product definition, R&D, regulatory affairs, registration, and quality systems to help medical device innovations land efficiently.",
+        ctaText: "View details",
+        ctaHref: "#contact"
       },
       {
-        id: "partnership",
-        title: "Business partnerships",
-        items: [
-          {
-            id: "brand",
-            title: "Brand Partnerships",
-            description:
-              "Reach a high-quality audience. Open to interviews, sponsored videos, and co-created content collaborations.",
-            tag: "Partnership",
-            ctaText: "Submit partnership inquiry",
-            ctaHref: "#contact"
-          }
-        ]
+        id: "odm",
+        title: "ODM (Medical Devices)",
+        positioning: "Build your own brand medical devices, fast",
+        description:
+          "Product design, software & hardware development, algorithms, and supply chain integration to accelerate the path from R&D to mass production.",
+        ctaText: "View ODM products",
+        ctaHref: "#contact"
+      },
+      {
+        id: "market-analysis",
+        title: "Market Analysis",
+        positioning: "Data-driven insight into medical device opportunities",
+        description:
+          "Market size, competitive landscape, technology trends, competitors, and business models to inform product and investment decisions.",
+        ctaText: "View analysis services",
+        ctaHref: "#contact"
       }
     ]
   },
