@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,9 @@ function scrollToId(id: string) {
   el?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+const DARK_LANG_BUTTON =
+  "border-header-border bg-transparent text-header-fg hover:bg-white/10 hover:text-white active:bg-white/15 focus-visible:ring-offset-header-bg";
+
 export function SiteNav({
   activeSectionId
 }: {
@@ -24,6 +27,15 @@ export function SiteNav({
   const content = useMemo(() => getSiteContent(lang), [lang]);
   const [open, setOpen] = useState(false);
   const onHome = location.pathname === "/";
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   const items = onHome
     ? content.nav.sections
@@ -49,14 +61,26 @@ export function SiteNav({
   };
 
   return (
-    <div className="sticky top-0 z-40 border-b border-border bg-bg/80 backdrop-blur">
+    <div className="sticky top-0 z-40 border-b border-header-border bg-header-bg/95 text-header-fg backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="font-display text-lg font-semibold tracking-tight text-fg"
+            className="flex items-center gap-2.5"
+            aria-label={content.nav.brand}
           >
-            {content.nav.brand}
+            <span className="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-white">
+              <img
+                src="/pegasus-mark.png"
+                alt=""
+                width={80}
+                height={68}
+                className="h-7 w-auto"
+              />
+            </span>
+            <span className="font-display text-lg font-bold tracking-tight text-header-fg">
+              {content.nav.brand}
+            </span>
           </Link>
           <div className="hidden items-center gap-1 md:flex">
             {items.map((it) => (
@@ -64,10 +88,10 @@ export function SiteNav({
                 key={it.id}
                 onClick={() => go(it.id)}
                 className={cn(
-                  "rounded-full px-3 py-1.5 text-xs font-medium text-muted transition hover:bg-fg/5 hover:text-fg",
+                  "rounded-full px-3 py-1.5 text-xs font-medium text-white/60 transition hover:bg-white/10 hover:text-white",
                   onHome &&
                     activeSectionId === it.id &&
-                    "bg-fg/5 text-fg"
+                    "bg-white/10 text-white"
                 )}
               >
                 {it.label}
@@ -79,7 +103,7 @@ export function SiteNav({
         <div className="flex items-center gap-2">
           <Button
             variant="secondary"
-            className="hidden md:inline-flex"
+            className={cn("hidden md:inline-flex", DARK_LANG_BUTTON)}
             onClick={() => {
               const from = lang;
               toggleLang();
@@ -92,7 +116,13 @@ export function SiteNav({
 
           <Button
             variant="ghost"
-            className="h-10 w-10 rounded-full p-0 md:hidden"
+            className={cn(
+              "h-10 w-10 rounded-full p-0 md:hidden",
+              "text-header-fg hover:bg-white/10 hover:text-white active:bg-white/15 focus-visible:ring-offset-header-bg"
+            )}
+            aria-label="Menu"
+            aria-expanded={open}
+            aria-controls="site-nav-mobile-menu"
             onClick={() => {
               const next = !open;
               setOpen(next);
@@ -101,7 +131,6 @@ export function SiteNav({
                 props: { action: next ? "open" : "close", device: "mobile" }
               });
             }}
-            aria-label="Menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
@@ -109,10 +138,13 @@ export function SiteNav({
       </Container>
 
       {open ? (
-        <div className="border-t border-border md:hidden">
+        <div
+          id="site-nav-mobile-menu"
+          className="border-t border-header-border bg-header-bg md:hidden"
+        >
           <Container className="py-3">
             <div className="grid gap-2">
-              <Button variant="secondary" onClick={() => {
+              <Button variant="secondary" className={DARK_LANG_BUTTON} onClick={() => {
                 const from = lang;
                 toggleLang();
                 const to = lang === "zh" ? "en" : "zh";
@@ -125,7 +157,7 @@ export function SiteNav({
                 <button
                   key={it.id}
                   onClick={() => go(it.id)}
-                  className="rounded-xl border border-border bg-card px-4 py-3 text-left text-sm font-medium text-fg"
+                  className="rounded-xl border border-header-border bg-transparent px-4 py-3 text-left text-sm font-medium text-header-fg transition hover:bg-white/10"
                 >
                   {it.label}
                 </button>
@@ -137,4 +169,3 @@ export function SiteNav({
     </div>
   );
 }
-

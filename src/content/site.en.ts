@@ -3,26 +3,30 @@ import type { SiteContent } from "./types";
 export const siteEn: SiteContent = {
   seo: {
     title: "58begin",
-    description:
-      "58begin.com — official site for a personal brand and product matrix: featured work, content, products & services, tools, and contact entry points."
+    description: "58begin.com — Skywalker Labs official site."
   },
+  footerTagline: "Aim High, Stay Grounded.",
   nav: {
     brand: "58begin",
     sections: [
       { id: "about", label: "About" },
-      { id: "culture", label: "Culture" },
       { id: "featured", label: "Featured" },
-      { id: "content", label: "Content" },
       { id: "products", label: "Products & Services" },
       { id: "tools", label: "Tools" },
       { id: "contact", label: "Contact" }
+    ]
+  },
+  announcement: {
+    items: [
+      "58begin — What seems impossible to the world may simply be something you have never tried to do.",
+      "Open to business partnerships — reach out via the footer below."
     ]
   },
   hero: {
     kicker: "Hi, I'm",
     title: "58begin",
     subtitle:
-      "｜A new chapter for an old soul｜Starting a venture at 58. A not-so-famous product manager, a seasoned hardware veteran.",
+      "A new chapter for an old soul · An unknown product manager, a seasoned hardware veteran.",
     primaryCta: { text: "View products & services", href: "#products" },
     secondaryCta: { text: "Explore featured work", href: "#featured" }
   },
@@ -30,6 +34,11 @@ export const siteEn: SiteContent = {
     { label: "Invention patents", value: "5" },
     { label: "Projects delivered", value: "11" },
     { label: "Satisfaction", value: "9.3/10" }
+  ],
+  trustBadges: [
+    { label: "Hardware × AI background", detail: "11 delivered projects" },
+    { label: "5 invention patents", detail: "Medical device focus" },
+    { label: "9.3/10 partner satisfaction", detail: "From real collaborations" }
   ],
   about: {
     title: "About 58begin",
@@ -43,7 +52,7 @@ export const siteEn: SiteContent = {
     },
     paragraphs: [
       "This is the official site for 58begin. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together.",
-      "I believe: the reason something feels impossible is simply because you haven't done it yet."
+      "I believe: what seems impossible to the world may simply be something you have never tried to do."
     ],
     highlights: [
       "Hardware positioning",
@@ -52,80 +61,86 @@ export const siteEn: SiteContent = {
       "Leverage AI"
     ]
   },
-  culture: {
-    title: "Our Values",
-    items: [
-      { title: "Mission Driven", description: "Innovating to improve lives." },
-      { title: "Innovation", description: "Breaking technology boundaries to transform healthcare." },
-      { title: "Responsibility", description: "Respecting life through uncompromising quality and safety." },
-      { title: "Execution", description: "Turning bold ideas into real-world medical solutions." },
-      { title: "Collaboration", description: "Building a global ecosystem for healthcare innovation." }
-    ]
-  },
   featured: {
     title: "Featured",
     items: [
       {
-        id: "book-1",
-        title: "Soil Tension Sensor ZL202211359507.7",
+        id: "falco",
+        title: "Falco — Windows Optimizer",
         description:
-          "Uses soil tension as a core indicator of plants’ water uptake capacity. By continuously monitoring root-zone moisture dynamics with a low-cost sensor, it enables a precise shift from experience-based irrigation to on-demand irrigation, providing critical data infrastructure for smart agriculture.",
-        ctaText: "Learn & buy",
-        ctaHref: "https://example.com"
+          "A Windows desktop optimizer: health score and real-time monitoring (CPU / GPU / memory / network / temperature), one-click boost, deep clean, and startup management to keep older machines running at high performance.",
+        images: [
+          {
+            src: "/falco-optimizer-dark.png",
+            alt: "Falco dark theme: health score, hardware monitoring, and one-click tuning",
+            width: 1280,
+            height: 952
+          },
+          {
+            src: "/falco-optimizer-light.png",
+            alt: "Falco light theme: world art gallery widget",
+            width: 1280,
+            height: 958
+          }
+        ],
+        ctaText: "View on GitHub",
+        ctaHref: "https://github.com/Leo1968/Falco"
+      },
+      {
+        id: "iap",
+        title: "IAP",
+        description:
+          "A complete embedded hardware design built around an LQFP64 MCU, integrating a communication module, audio unit, and multiple external interfaces. Shown as a 3D render.",
+        images: [
+          {
+            src: "/iap-pcb-3d.png",
+            alt: "IAP hardware 3D render: PCB design with LQFP64 MCU and peripheral interfaces",
+            width: 1280,
+            height: 845
+          }
+        ]
       }
     ]
   },
   findMeOn: {
     title: "Find me here",
     items: [
-      { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕" },
-      { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵" },
-      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦" },
-      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶" },
-      { id: "bilibili", label: "Bilibili", href: "https://example.com", icon: "📺" }
+      { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
+      { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
+      { id: "x", label: "X.com", href: "https://example.com", icon: "🐦", iconKey: "x" },
+      { id: "youtube", label: "YouTube", href: "https://example.com", icon: "▶", iconKey: "youtube" },
+      { id: "bilibili", label: "Bilibili", href: "https://example.com", icon: "📺", iconKey: "bilibili" }
     ]
   },
   products: {
     title: "Products & Services",
-    groups: [
+    items: [
       {
-        id: "courses",
-        title: "Courses",
-        items: [
-          {
-            id: "creator-bootcamp",
-            title: "Creator Bootcamp",
-            description:
-              "Build a personal brand from scratch and set up a sustainable online business.",
-            tag: "Course",
-            ctaText: "View details",
-            ctaHref: "https://example.com"
-          },
-          {
-            id: "ai-solo",
-            title: "AI Solopreneur Practicum",
-            description:
-              "Amplify efficiency with AI tools and create outsized value as a one-person company.",
-            tag: "Course",
-            ctaText: "View details",
-            ctaHref: "https://example.com"
-          }
-        ]
+        id: "md-consulting",
+        title: "Medical Device Development Consulting",
+        positioning: "Professional R&D support from concept to market",
+        description:
+          "Covering product definition, R&D, regulatory affairs, registration, and quality systems to help medical device innovations land efficiently.",
+        ctaText: "View details",
+        ctaHref: "#contact"
       },
       {
-        id: "partnership",
-        title: "Business partnerships",
-        items: [
-          {
-            id: "brand",
-            title: "Brand Partnerships",
-            description:
-              "Reach a high-quality audience. Open to interviews, sponsored videos, and co-created content collaborations.",
-            tag: "Partnership",
-            ctaText: "Submit partnership inquiry",
-            ctaHref: "#contact"
-          }
-        ]
+        id: "odm",
+        title: "ODM (Medical Devices)",
+        positioning: "Build your own-brand medical devices, fast",
+        description:
+          "Product design, software & hardware development, algorithms, and supply chain integration to accelerate the path from R&D to mass production.",
+        ctaText: "View ODM products",
+        ctaHref: "#contact"
+      },
+      {
+        id: "market-analysis",
+        title: "Market Analysis",
+        positioning: "Data-driven insight into medical device opportunities",
+        description:
+          "Market size, competitive landscape, technology trends, competitors, and business models to inform product and investment decisions.",
+        ctaText: "View analysis services",
+        ctaHref: "#contact"
       }
     ]
   },
@@ -133,28 +148,33 @@ export const siteEn: SiteContent = {
     title: "Tools & Projects",
     items: [
       {
-        id: "tool-1",
-        title: "CoverMagic",
-        type: "Web App",
+        id: "falco",
+        title: "Falco",
+        type: "Windows App · Open Source",
         description:
-          "Enter a title and style to generate platform-ready cover images in one click.",
-        href: "https://example.com"
+          "A Windows desktop optimizer: health score, real-time hardware monitoring, and one-click boost to keep older machines fast.",
+        href: "https://github.com/Leo1968/Falco"
       },
       {
-        id: "tool-2",
-        title: "X Reply Helper",
-        type: "Chrome Extension",
-        description: "Helps you generate more natural replies in the other person's language.",
-        href: "https://example.com"
+        id: "root-nutrient-uptake",
+        title: "Root Nutrient Uptake",
+        type: "Open Source",
+        description:
+          "Monitoring and research around root nutrient uptake: from soil tension sensing to data analysis.",
+        href: "https://github.com/Leo1968/Root-nutrient-uptake"
       }
     ]
   },
   contact: {
     title: "Contact",
     description:
-      "If you'd like to inquire about courses or discuss partnerships, feel free to reach out via the channels below.",
+      "If you'd like to discuss development consulting, ODM, market analysis, or partnerships, feel free to reach out via the channels below.",
     email: "hello@58begin.com",
     wechatLabel: "Scan to add WeChat",
+    wechatQr: {
+      src: "/wechat-qr.png",
+      alt: "WeChat QR code: scan to add contact"
+    },
     form: {
       title: "Partnership / booking form",
       nameLabel: "Name",
@@ -167,35 +187,52 @@ export const siteEn: SiteContent = {
       successText: "Received. I will get back to you soon.",
       errorText: "Failed to submit. Please try again later or email me directly.",
       intents: [
-        { value: "course", label: "Course inquiry" },
-        { value: "consulting", label: "Consulting / service" },
-        { value: "partnership", label: "Business partnership" },
+        { value: "consulting", label: "Development Consulting" },
+        { value: "partnership", label: "ODM" },
+        { value: "consulting", label: "Market Analysis" },
+        { value: "partnership", label: "Business Partnership" },
         { value: "other", label: "Other" }
       ]
     }
   },
+  closingCta: {
+    title: "Turn the impossible into your next step.",
+    subtitle: "Start with one conversation: consulting, ODM, market analysis, or just a good question.",
+    primaryCta: { text: "Start a conversation", href: "#contact" },
+    secondaryCta: { text: "Read the latest posts", href: "/posts" }
+  },
   posts: {
-    title: "Content",
+    title: "Medical Device Innovation Knowledge Base",
     items: [
       {
-        slug: "start-with-positioning",
-        title: "Start with a one-line positioning: let users understand you in 10 seconds",
+        slug: "clinical-need-to-product",
+        title: "From clinical need to medical device product: how innovation lands",
         excerpt:
-          "Positioning is not a slogan. It's your “default option” in the mind of a specific audience. This article gives you a copy-ready structure and a self-checklist.",
-        date: "2026-06-06",
-        readTime: "6 min",
-        tags: ["Positioning", "Messaging"],
-        body: `## Why a one-line positioning drives conversion\n\nWhen users land on your homepage for the first time, they won't “patiently understand you”. They will quickly decide: are you what I need?\n\n## One-line positioning structure\n\n> I help {a certain group of people}, use {a method}, in {a context} to achieve {a measurable result}.\n\n## Closing\n\nWrite your one-line positioning, then ask 3 target users to repeat it back to you. Check whether what they repeat is consistent.`
-      },
-      {
-        slug: "content-asset-system",
-        title: "Content as assets: turn one output into long-term compounding",
-        excerpt:
-          "The value of content isn't just today's views. It's whether it can be searched, reused, and recombined—eventually becoming a sustainable entry point for products.",
+          "Starting from clinical pain points and user needs, this article breaks down product definition, technical route, R&D verification, and product landing — building the complete path from Clinical Need → Product Definition → Engineering → Product.",
         date: "2026-06-06",
         readTime: "8 min",
-        tags: ["Content", "Growth"],
-        body: `## Three levels of content assets\n\n- Instant content: peaks at publish time\n- Searchable content: brings steady traffic via search\n- Composable content: becomes modules for courses, tools, or reports\n\n## A simple method\n\nArchive your past content by “problem”, not by “platform”.`
+        tags: ["Product Innovation", "Technical R&D"],
+        body: `## Start from clinical needs\n\nThe starting point of medical device innovation is not technology but clinical pain points. Common ways to identify real needs: clinical observation, clinician–engineer interviews, complaint analysis of existing products, and workflow gap studies.\n\n## Product definition\n\n- Target users and use scenarios\n- Core clinical value proposition\n- Key performance metrics and constraints\n\n## Technical route and R&D verification\n\nBuild the mapping of Clinical Need → Product Definition → Engineering → Product: translate clinical language into measurable engineering specs, then close the loop with design input/output reviews.\n\n## Product landing\n\nFrom bench prototype to registration sample, plan the ISO 13485 quality system and the full Design History File (DHF) early — late documentation is the most expensive rework.\n\n## Closing\n\nThe essence of the innovation path is the repeated alignment between clinical needs and engineering implementation — the earlier the alignment, the faster the landing.`
+      },
+      {
+        slug: "from-poc-to-registration",
+        title: "The medical device R&D process: from PoC to registration",
+        excerpt:
+          "Medical device innovation is not just technology development — it is the coordination of regulation, risk, quality, and engineering systems. This article maps product development, risk management, V&V, registration, and mass-production handoff.",
+        date: "2026-06-06",
+        readTime: "10 min",
+        tags: ["Technical R&D", "Regulatory & Registration"],
+        body: `## Proof of concept (PoC)\n\nVerify technical feasibility: bench prototype, key metric testing, and preliminary risk analysis decide whether the project enters engineering.\n\n## Design and development\n\n- Design input: translate requirements into an executable product specification\n- Design output: drawings, software, algorithms, and process documents\n- Verification & validation (V&V): bench testing, type testing, and clinical evaluation\n\n## Risk management\n\nHazard identification, risk control, and residual risk evaluation under ISO 14971 — risk management runs through the whole process, not as homework before registration.\n\n## Registration\n\nChoose the registration class (I/II/III), prepare the technical documentation, and pass the QMS audit; the registration strategy should be designed together with product definition.\n\n## Production handoff\n\nDesign transfer, process validation (PV), supplier management, and change control — the watershed between “can be built” and “built consistently”.`
+      },
+      {
+        slug: "device-market-analysis",
+        title: "Medical device market analysis: from industry trends to product opportunities",
+        excerpt:
+          "Market size, competitive landscape, technology trends, user needs, and competitor performance — a market research framework for medical devices to support project approval, R&D direction, and commercialization decisions.",
+        date: "2026-06-06",
+        readTime: "8 min",
+        tags: ["Market Insight", "Commercialization"],
+        body: `## Market size and structure\n\nCross-validate top-down and bottom-up estimates, and separate replacement demand from new demand — their growth logics are fundamentally different.\n\n## Competitive landscape\n\n- Leading vendors and market share distribution\n- Headroom for domestic substitution\n- Channel models and price bands\n\n## Technology trends\n\nSensor precision, AI-assisted decision-making, minimally invasive, and home-use directions — judge trends by technology maturity, not by launch-event density.\n\n## User needs\n\nA dual view of clinical and payer sides: who uses it, who decides, who pays — often three different people.\n\n## Product opportunities\n\nTranslate insight into project rationale: target segment, differentiation, and commercialization path — answering “why now, and why us” with data.`
       }
     ]
   },

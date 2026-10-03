@@ -38,25 +38,28 @@ export default function Posts() {
 
   return (
     <PageShell>
-      <Container className="py-14">
+      <Container className="py-16 sm:py-24">
         <div className="max-w-[900px]">
-          <div className="font-display text-4xl font-semibold tracking-tight text-fg">
-            {content.posts.title}
+          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+            {lang === "zh" ? "知识库" : "Knowledge Base"}
           </div>
-          <div className="mt-3 text-sm text-muted">
+          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+            {content.posts.title}
+          </h1>
+          <div className="mt-4 text-sm text-muted sm:text-base">
             {lang === "zh"
-              ? "长期增长来自可检索、可复用的内容资产。"
-              : "Long-term growth comes from searchable, reusable content assets."}
+              ? "聚焦医疗器械创新、研发与商业化，持续沉淀专业知识与行业洞察。"
+              : "Focused on medical device innovation, R&D, and commercialization — continuously building domain knowledge and industry insight."}
           </div>
 
           {allTags.length ? (
             <div className="mt-8 flex flex-wrap gap-2">
               <button
                 onClick={() => setParams({})}
-                className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition ${
                   !tag
-                    ? "border-fg/20 bg-fg/5 text-fg"
-                    : "border-border bg-card text-muted hover:text-fg"
+                    ? "border-fg bg-fg text-bg"
+                    : "border-border bg-transparent text-muted hover:border-fg/40 hover:text-fg"
                 }`}
               >
                 {lang === "zh" ? "全部" : "All"}
@@ -65,10 +68,10 @@ export default function Posts() {
                 <button
                   key={t}
                   onClick={() => setParams({ tag: t })}
-                  className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                  className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition ${
                     tag === t
-                      ? "border-fg/20 bg-fg/5 text-fg"
-                      : "border-border bg-card text-muted hover:text-fg"
+                      ? "border-fg bg-fg text-bg"
+                      : "border-border bg-transparent text-muted hover:border-fg/40 hover:text-fg"
                   }`}
                 >
                   {t}
@@ -77,26 +80,32 @@ export default function Posts() {
             </div>
           ) : null}
 
-          <div className="mt-8 grid gap-4">
+          <div className="mt-10 grid gap-4">
             {posts.map((p) => (
-              <Link key={p.slug} to={`/posts/${p.slug}`} className="group">
-                <Card className="hover:border-fg/20">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="text-lg font-semibold text-fg transition group-hover:opacity-90">
+              <Link key={p.slug} to={`/posts/${p.slug}`} className="group block">
+                <Card shape="square" className="p-6">
+                  <div className="flex items-start justify-between gap-6">
+                    <div className="text-lg font-semibold text-fg group-hover:underline">
                       {p.title}
                     </div>
-                    <div className="text-xs text-muted">
-                      {p.date} · {p.readTime}
-                    </div>
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 shrink-0 text-fg transition-transform duration-200 group-hover:translate-x-0.5"
+                    >
+                      →
+                    </span>
                   </div>
-                  <div className="mt-2 text-sm leading-relaxed text-muted">
+                  <div className="mt-1.5 text-xs text-muted">
+                    {p.date} · {p.readTime}
+                  </div>
+                  <div className="mt-3 text-sm leading-relaxed text-muted">
                     {p.excerpt}
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {p.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full border border-border bg-bg px-2 py-0.5 text-[11px] text-muted"
+                        className="rounded-full bg-surface-3 px-2.5 py-1 text-[11px] font-medium text-fg/80"
                       >
                         {t}
                       </span>

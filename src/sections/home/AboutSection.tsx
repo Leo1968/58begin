@@ -1,43 +1,57 @@
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
-import { Card } from "@/components/Card";
 
 export function AboutSection({ about }: { about: SiteContent["about"] }) {
   return (
-    <Container className="py-14">
-      <SectionHeading id="about" title={about.title} />
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
-        <div className="max-w-[760px]">
-          <Card>
-            <div className="text-sm font-semibold text-fg">{about.mission.title}</div>
-            <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-muted sm:text-base">
-              {about.mission.body}
-            </div>
-          </Card>
-          <Card className="mt-4">
-            <div className="text-sm font-semibold text-fg">{about.vision.title}</div>
-            <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-muted sm:text-base">
-              {about.vision.body}
-            </div>
-          </Card>
-          {about.paragraphs.map((p) => (
-            <p key={p} className="mt-4 text-sm leading-relaxed text-fg/90 sm:text-base">
-              {p}
-            </p>
-          ))}
-        </div>
-        <div className="grid gap-3">
-          {about.highlights.map((h) => (
+    <div className="bg-surface-4">
+      <Container className="py-16 sm:py-24">
+        <SectionHeading id="about" title={about.title} />
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
+          <div className="max-w-[760px]">
             <div
-              key={h}
-              className="rounded-2xl border border-border bg-card px-4 py-3 text-sm font-medium text-fg"
+              className="reveal grid gap-8 sm:grid-cols-2"
+              style={{ "--reveal-delay": "60ms" } as CSSProperties}
             >
-              {h}
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+                  {about.mission.title}
+                </div>
+                <p className="mt-3 whitespace-pre-line text-lg font-medium leading-relaxed text-fg">
+                  {about.mission.body}
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+                  {about.vision.title}
+                </div>
+                <p className="mt-3 whitespace-pre-line text-lg font-medium leading-relaxed text-fg">
+                  {about.vision.body}
+                </p>
+              </div>
             </div>
-          ))}
+            {about.paragraphs.map((p) => (
+              <p key={p} className="mt-6 text-sm leading-relaxed text-fg/90 sm:text-base">
+                {p}
+              </p>
+            ))}
+          </div>
+          <div
+            className="reveal flex flex-wrap content-start gap-2 lg:flex-col"
+            style={{ "--reveal-delay": "180ms" } as CSSProperties}
+          >
+            {about.highlights.map((h) => (
+              <div
+                key={h}
+                className="rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-fg"
+              >
+                {h}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 }

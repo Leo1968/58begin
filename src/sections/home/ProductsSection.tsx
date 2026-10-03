@@ -1,6 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
-import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TrackedLink } from "@/components/TrackedLink";
@@ -12,58 +11,55 @@ export function ProductsSection({
   products: SiteContent["products"];
 }) {
   return (
-    <Container className="py-14">
+    <Container className="py-16 sm:py-24">
       <SectionHeading id="products" title={products.title} />
-      <div className="mt-10 grid gap-10">
-        {products.groups.map((g) => (
-          <div key={g.id}>
-            <div className="font-display text-2xl font-semibold tracking-tight text-fg">
-              {g.title}
+      <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        {products.items.map((it, i) => (
+          <div
+            key={it.id}
+            className="reveal flex flex-col rounded-[20px] border border-border bg-card p-6 transition hover:bg-surface-4"
+            style={{ "--reveal-delay": `${i * 90}ms` } as CSSProperties}
+          >
+            <div className="text-lg font-semibold text-fg">{it.title}</div>
+            {it.positioning ? (
+              <div className="mt-2 text-sm font-medium text-fg/90">
+                {it.positioning}
+              </div>
+            ) : null}
+            <div className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+              {it.description}
             </div>
-            <div className="mt-4 grid gap-4 lg:grid-cols-3">
-              {g.items.map((it) => (
-                <Card key={it.id}>
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="text-lg font-semibold text-fg">{it.title}</div>
-                    {it.tag ? (
-                      <span className="rounded-full border border-border bg-bg px-2 py-0.5 text-[11px] text-muted">
-                        {it.tag}
-                      </span>
-                    ) : null}
-                  </div>
-                  <div className="mt-2 text-sm leading-relaxed text-muted">
-                    {it.description}
-                  </div>
-                  <div className="mt-5">
-                    <TrackedLink
-                      href={it.ctaHref}
-                      tracking={{
-                        type: "cta",
-                        id: `product_${it.id}`,
-                        text: it.ctaText,
-                        section: "products"
-                      }}
-                      onClick={() =>
-                        track({
-                          name: "product_card_click",
-                          props: { product_id: it.id, product_name: it.title }
-                        })
-                      }
-                      className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-fg hover:bg-fg/5"
-                      target={it.ctaHref.startsWith("#") ? "_self" : "_blank"}
-                      rel={it.ctaHref.startsWith("#") ? undefined : "noopener noreferrer"}
-                    >
-                      {it.ctaText}
-                      <ArrowUpRight className="h-4 w-4 text-muted" />
-                    </TrackedLink>
-                  </div>
-                </Card>
-              ))}
-            </div>
+            {it.ctaText && it.ctaHref ? (
+              <div className="mt-5">
+                <TrackedLink
+                  href={it.ctaHref}
+                  tracking={{
+                    type: "cta",
+                    id: `product_${it.id}`,
+                    text: it.ctaText,
+                    section: "products"
+                  }}
+                  onClick={() =>
+                    track({
+                      name: "product_card_click",
+                      props: { product_id: it.id, product_name: it.title }
+                    })
+                  }
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
+                >
+                  {it.ctaText}
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+                  >
+                    →
+                  </span>
+                </TrackedLink>
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
     </Container>
   );
 }
-

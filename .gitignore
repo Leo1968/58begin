@@ -28,3 +28,7 @@ playwright-report/
 *.sw?
 
 .trae/documents/
+
+# Visual redesign P0: vendored measurement tool + reference data (local only, never commit)
+tools/vendor/
+tools/reference/

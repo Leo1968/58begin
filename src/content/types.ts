@@ -1,5 +1,7 @@
 export type Lang = "zh" | "en";
 
+import type { BrandIconName } from "@/components/BrandIcons";
+
 export type Metric = {
   label: string;
   value: string;
@@ -11,29 +13,27 @@ export type LinkItem = {
   label: string;
   href: string;
   icon?: string;
+  iconKey?: BrandIconName;
 };
 
 export type FeaturedItem = {
   id: string;
   title: string;
   description: string;
-  ctaText: string;
-  ctaHref: string;
+  images?: { src: string; alt: string; width: number; height: number }[];
+  ctaText?: string;
+  ctaHref?: string;
 };
 
 export type ProductItem = {
   id: string;
   title: string;
+  /** one-line positioning shown right under the title */
+  positioning?: string;
   description: string;
   tag?: string;
-  ctaText: string;
-  ctaHref: string;
-};
-
-export type ProductGroup = {
-  id: string;
-  title: string;
-  items: ProductItem[];
+  ctaText?: string;
+  ctaHref?: string;
 };
 
 export type ToolItem = {
@@ -44,19 +44,19 @@ export type ToolItem = {
   href: string;
 };
 
-export type ValueItem = {
-  title: string;
-  description: string;
-};
-
 export type SiteContent = {
   seo: {
     title: string;
     description: string;
   };
+  /** short brand slogan shown under the footer logo */
+  footerTagline: string;
   nav: {
     brand: string;
     sections: { id: string; label: string }[];
+  };
+  announcement: {
+    items: string[];
   };
   hero: {
     kicker: string;
@@ -66,16 +66,13 @@ export type SiteContent = {
     secondaryCta: { text: string; href: string };
   };
   metrics: Metric[];
+  trustBadges: { label: string; detail: string }[];
   about: {
     title: string;
     mission: { title: string; body: string };
     vision: { title: string; body: string };
     paragraphs: string[];
     highlights: string[];
-  };
-  culture: {
-    title: string;
-    items: ValueItem[];
   };
   featured: {
     title: string;
@@ -87,7 +84,7 @@ export type SiteContent = {
   };
   products: {
     title: string;
-    groups: ProductGroup[];
+    items: ProductItem[];
   };
   tools: {
     title: string;
@@ -98,6 +95,7 @@ export type SiteContent = {
     description: string;
     email: string;
     wechatLabel: string;
+    wechatQr?: { src: string; alt: string };
     form: {
       title: string;
       nameLabel: string;
@@ -111,6 +109,12 @@ export type SiteContent = {
       errorText: string;
       intents: { value: "course" | "consulting" | "partnership" | "other"; label: string }[];
     };
+  };
+  closingCta: {
+    title: string;
+    subtitle: string;
+    primaryCta: { text: string; href: string };
+    secondaryCta: { text: string; href: string };
   };
   posts: {
     title: string;

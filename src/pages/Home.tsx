@@ -1,19 +1,19 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useSectionTracking } from "@/hooks/useSectionTracking";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLangStore } from "@/stores/lang";
 import { getSiteContent } from "@/content";
 import { track } from "@/utils/analytics";
 import { HeroSection } from "@/sections/home/HeroSection";
 import { AboutSection } from "@/sections/home/AboutSection";
-import { CultureSection } from "@/sections/home/CultureSection";
 import { FeaturedSection } from "@/sections/home/FeaturedSection";
-import { ContentSection } from "@/sections/home/ContentSection";
 import { ProductsSection } from "@/sections/home/ProductsSection";
 import { ToolsSection } from "@/sections/home/ToolsSection";
 import { ContactSection } from "@/sections/home/ContactSection";
+import { ClosingCtaSection } from "@/sections/home/ClosingCtaSection";
 
 export default function Home() {
   const { lang } = useLangStore();
@@ -47,16 +47,20 @@ export default function Home() {
     }, 0);
   }, [location.hash]);
 
+  const revealRoot = useRef<HTMLDivElement>(null);
+  useScrollReveal(revealRoot);
+
   return (
     <PageShell activeSectionId={active}>
-      <HeroSection hero={content.hero} metrics={content.metrics} />
+      <div ref={revealRoot}>
+      <HeroSection hero={content.hero} metrics={content.metrics} trustBadges={content.trustBadges} />
       <AboutSection about={content.about} />
-      <CultureSection culture={content.culture} />
       <FeaturedSection featured={content.featured} />
-      <ContentSection posts={content.posts} findMeOn={content.findMeOn} lang={lang} />
       <ProductsSection products={content.products} />
       <ToolsSection tools={content.tools} />
-      <ContactSection contact={content.contact} lang={lang} />
+      <ContactSection contact={content.contact} findMeOn={content.findMeOn} lang={lang} />
+      <ClosingCtaSection closingCta={content.closingCta} />
+      </div>
     </PageShell>
   );
 }

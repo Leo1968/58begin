@@ -79,10 +79,10 @@ export default function PostDetail() {
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1fr_280px]">
           <article className="max-w-[860px]">
-            <div className="text-xs text-muted">
+            <div className="text-xs uppercase tracking-[0.2em] text-muted">
               {post.date} · {post.readTime}
             </div>
-            <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-fg">
+            <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl">
               {post.title}
             </h1>
             <div className="mt-6">
@@ -95,7 +95,7 @@ export default function PostDetail() {
                     return (
                       <h2
                         id={id}
-                        className="mt-10 scroll-mt-28 font-display text-2xl font-semibold tracking-tight text-fg"
+                        className="mt-10 scroll-mt-28 font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl"
                       >
                         {children}
                       </h2>
@@ -129,7 +129,7 @@ export default function PostDetail() {
                     </ol>
                   ),
                   blockquote: ({ children }) => (
-                    <blockquote className="mt-4 rounded-2xl border border-border bg-card px-4 py-3 text-sm text-fg/90">
+                    <blockquote className="mt-4 rounded-none border-l-2 border-fg bg-surface-4 px-4 py-3 text-sm text-fg/90">
                       {children}
                     </blockquote>
                   ),
@@ -171,7 +171,7 @@ export default function PostDetail() {
 
           {toc.length ? (
             <aside className="hidden lg:block">
-              <div className="sticky top-24 rounded-2xl border border-border bg-card p-5">
+              <div className="sticky top-24 rounded-none border border-border bg-card p-5">
                 <div className="text-xs font-medium text-fg">
                   {lang === "zh" ? "目录" : "Contents"}
                 </div>
