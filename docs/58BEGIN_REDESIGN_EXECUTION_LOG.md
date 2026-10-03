@@ -271,3 +271,37 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Next-stage recommendation
 
 进入 P6（全量 QA + Gate 文档收口）。
+
+---
+
+## P6 — QA / Gate Closure（2026-10-03）
+
+### Changed files
+
+| 文件 | 变更 |
+|---|---|
+| `tools/qa-matrix.mjs` | **新增**：P6 矩阵执行器（7 视口 × zh/en × 5 路由 = 70 格溢出+截图；a11y 探针：html lang 同步/aria-expanded/Escape×2/Tab 顺序/focus ring；CWV：LCP/CLS 常规+Fast3G） |
+| `docs/58BEGIN_REDESIGN_GATES.md` | **新增**：G0–G4 门禁记录 |
+| `docs/58BEGIN_REDESIGN_VISUAL_RULES.md` | **新增**：as-built 视觉规则固化版 |
+
+### Test suite results
+
+| 套件 | 结果 |
+|---|---|
+| `npm run check`（tsc） | ✅ 0 error |
+| `npm run lint` | 持平主干既有基线（5 error + 4 warning，全部位于未触碰文件；本次变更文件零问题） |
+| `npm test`（vitest） | ✅ 6 files / 13 tests |
+| `npm run test:e2e` 全引擎 | chromium+webkit 4/4 ✅；firefox 2 failed（环境性 launch 崩溃，与改前主干基线一致——**非回归**，证据：P0 基线同结果） |
+| QA 矩阵（chromium） | ✅ 70 格全部 0px 横向溢出 |
+| CWV | LCP **492ms** ✅ ｜ CLS **0**（常规+Fast3G）✅ ｜ INP：实验室无长任务，字段值待上线观察 ◐ |
+| reduced-motion | ✅ marquee 静止 + reveal 直显（P5 实测） |
+| a11y 探针 | ✅ html lang 同步 / aria-expanded / Escape×2 / Tab 顺序 / focus ring |
+
+### Gate results
+
+- **Gate 1 + Gate 2 + Gate 3：全部 PASS**（明细见 `docs/58BEGIN_REDESIGN_GATES.md`）
+- **Gate 4：BLOCKED** —— 按 12.3 节等待人工批准，不执行发布
+
+### Next-stage recommendation
+
+进入 P7（Release）：创建 PR（含变更/测试/风险/回滚说明）→ **等待人工批准** → 批准后 deploy + 线上冒烟 + 回滚演练。
