@@ -28,7 +28,7 @@ export const siteEn: SiteContent = {
     kicker: "Hi, I'm",
     title: "58begin",
     subtitle:
-      "｜A new chapter for an old soul｜Starting a venture at 58. A not-so-famous product manager, a seasoned hardware veteran.",
+      "｜A new chapter for an old soul｜Starting a venture at 58. An unknown product manager, a seasoned hardware veteran.",
     primaryCta: { text: "View products & services", href: "#products" },
     secondaryCta: { text: "Explore featured work", href: "#featured" }
   },
