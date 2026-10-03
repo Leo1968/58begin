@@ -186,9 +186,10 @@ export const siteEn: SiteContent = {
       successText: "Received. I will get back to you soon.",
       errorText: "Failed to submit. Please try again later or email me directly.",
       intents: [
-        { value: "course", label: "Course inquiry" },
-        { value: "consulting", label: "Consulting / service" },
-        { value: "partnership", label: "Business partnership" },
+        { value: "consulting", label: "Development Consulting" },
+        { value: "partnership", label: "ODM" },
+        { value: "consulting", label: "Market Analysis" },
+        { value: "partnership", label: "Business Partnership" },
         { value: "other", label: "Other" }
       ]
     }

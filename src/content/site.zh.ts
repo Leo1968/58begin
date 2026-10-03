@@ -178,8 +178,9 @@ export const siteZh: SiteContent = {
       successText: "已收到，我会尽快回复你。",
       errorText: "提交失败，请稍后重试或直接发邮件联系。",
       intents: [
-        { value: "course", label: "课程咨询" },
-        { value: "consulting", label: "咨询/服务" },
+        { value: "consulting", label: "开发咨询" },
+        { value: "partnership", label: "ODM" },
+        { value: "consulting", label: "市场分析" },
         { value: "partnership", label: "商务合作" },
         { value: "other", label: "其他" }
       ]
