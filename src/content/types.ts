@@ -49,6 +49,8 @@ export type SiteContent = {
     title: string;
     description: string;
   };
+  /** short brand slogan shown under the footer logo */
+  footerTagline: string;
   nav: {
     brand: string;
     sections: { id: string; label: string }[];

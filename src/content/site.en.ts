@@ -5,6 +5,7 @@ export const siteEn: SiteContent = {
     title: "58begin",
     description: "58begin.com — Skywalker Labs official site."
   },
+  footerTagline: "Aim High, Stay Grounded.",
   nav: {
     brand: "58begin",
     sections: [

@@ -5,6 +5,7 @@ export const siteZh: SiteContent = {
     title: "58begin",
     description: "58begin.com — Skywalker Labs 官网。"
   },
+  footerTagline: "志存高远，脚踏实地。",
   nav: {
     brand: "58begin",
     sections: [

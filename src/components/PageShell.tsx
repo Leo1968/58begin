@@ -39,7 +39,7 @@ export function PageShell({
               className="h-16 w-auto"
             />
             <p className="mt-3 text-sm leading-relaxed text-footer-text/80">
-              {content.seo.description}
+              {content.footerTagline}
             </p>
           </div>
 

@@ -33,6 +33,9 @@ describe("site content alignment", () => {
     expect(siteEn.closingCta.primaryCta.text).toBeTruthy();
     expect(siteZh.closingCta.secondaryCta.text).toBeTruthy();
     expect(siteEn.closingCta.secondaryCta.text).toBeTruthy();
+
+    expect(siteZh.footerTagline.length).toBeGreaterThan(0);
+    expect(siteEn.footerTagline.length).toBeGreaterThan(0);
   });
 });
 
