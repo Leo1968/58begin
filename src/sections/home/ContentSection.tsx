@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import type { SiteContent } from "@/content/types";
 import { Card } from "@/components/Card";
@@ -30,8 +31,13 @@ export function ContentSection({
         />
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="grid gap-4">
-            {posts.items.slice(0, 3).map((p) => (
-              <Link key={p.slug} to={`/posts/${p.slug}`} className="group block">
+            {posts.items.slice(0, 3).map((p, i) => (
+              <Link
+                key={p.slug}
+                to={`/posts/${p.slug}`}
+                className="reveal group block"
+                style={{ "--reveal-delay": `${i * 90}ms` } as CSSProperties}
+              >
                 <Card shape="square" className="p-6">
                   <div className="flex items-start justify-between gap-6">
                     <div className="text-base font-semibold text-fg group-hover:underline">
@@ -68,7 +74,7 @@ export function ContentSection({
             </Link>
           </div>
 
-          <div>
+          <div className="reveal" style={{ "--reveal-delay": "180ms" } as CSSProperties}>
             <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
               {findMeOn.title}
             </div>

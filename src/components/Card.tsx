@@ -1,17 +1,20 @@
-import type { PropsWithChildren } from "react";
+import type { CSSProperties, PropsWithChildren } from "react";
 import { cn } from "@/lib/utils";
 
 export function Card({
   className,
   children,
-  shape = "rounded"
+  shape = "rounded",
+  style
 }: PropsWithChildren<{
   className?: string;
   /** rounded = legacy soft card; square = hairline flat card; product = 20px product card */
   shape?: "rounded" | "square" | "product";
+  style?: CSSProperties;
 }>) {
   return (
     <div
+      style={style}
       className={cn(
         "border border-border bg-card p-5 transition",
         shape === "rounded" &&

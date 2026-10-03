@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { Check, Copy } from "lucide-react";
 import type { SiteContent } from "@/content/types";
 import { Card } from "@/components/Card";
@@ -37,7 +37,7 @@ export function ContactSection({
       <SectionHeading id="contact" title={contact.title} subtitle={contact.description} />
       <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_440px] lg:items-start">
         <div className="grid gap-4">
-          <Card shape="square" className="p-6">
+          <Card shape="square" className="reveal p-6">
             <div className="text-xs text-muted">Email</div>
             <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
               <div className="text-sm font-medium text-fg">{contact.email}</div>
@@ -60,7 +60,7 @@ export function ContactSection({
             </div>
           </Card>
 
-          <Card shape="square" className="p-6">
+          <Card shape="square" className="reveal p-6" style={{ "--reveal-delay": "90ms" } as CSSProperties}>
             <div className="text-xs text-muted">{contact.wechatLabel}</div>
             <div className="mt-3 text-sm text-muted">
               {lang === "zh"
@@ -81,7 +81,9 @@ export function ContactSection({
           </Card>
         </div>
 
-        <LeadForm />
+        <div className="reveal" style={{ "--reveal-delay": "180ms" } as CSSProperties}>
+          <LeadForm />
+        </div>
       </div>
 
       <Modal open={qrOpen} title={contact.wechatLabel} onClose={() => setQrOpen(false)}>

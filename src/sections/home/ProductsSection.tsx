@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -19,10 +20,11 @@ export function ProductsSection({
               {g.title}
             </div>
             <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {g.items.map((it) => (
+              {g.items.map((it, i) => (
                 <div
                   key={it.id}
-                  className="flex flex-col rounded-[20px] border border-border bg-card p-6 transition hover:bg-surface-4"
+                  className="reveal flex flex-col rounded-[20px] border border-border bg-card p-6 transition hover:bg-surface-4"
+                  style={{ "--reveal-delay": `${i * 90}ms` } as CSSProperties}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="text-lg font-semibold text-fg">{it.title}</div>

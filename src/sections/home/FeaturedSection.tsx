@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -15,7 +16,8 @@ export function FeaturedSection({
         {featured.items.map((it, i) => (
           <div
             key={it.id}
-            className="grid gap-6 border-t border-border py-10 lg:grid-cols-[140px_1fr_auto] lg:items-start"
+            className="reveal grid gap-6 border-t border-border py-10 lg:grid-cols-[140px_1fr_auto] lg:items-start"
+            style={{ "--reveal-delay": `${i * 90}ms` } as CSSProperties}
           >
             <div
               aria-hidden="true"

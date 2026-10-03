@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -10,10 +11,11 @@ export function ToolsSection({ tools }: { tools: SiteContent["tools"] }) {
       <Container className="py-16 sm:py-24">
         <SectionHeading id="tools" title={tools.title} />
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {tools.items.map((t) => (
+          {tools.items.map((t, i) => (
             <div
               key={t.id}
-              className="flex flex-col rounded-[20px] border border-border bg-card p-6 transition hover:bg-surface-4"
+              className="reveal flex flex-col rounded-[20px] border border-border bg-card p-6 transition hover:bg-surface-4"
+              style={{ "--reveal-delay": `${i * 90}ms` } as CSSProperties}
             >
               <div className="text-xs uppercase tracking-[0.2em] text-muted">
                 {t.type}

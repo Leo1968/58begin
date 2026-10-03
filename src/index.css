@@ -64,11 +64,14 @@ body {
 }
 
 /*
- * Scroll-reveal primitives (consumed from P5 on).
+ * Scroll-reveal primitives (progressive enhancement: the hidden state only
+ * applies once JS mounts and adds `.reveal-ready` to the page root, so
+ * content is never lost without scripting).
  * Curve measured from the reference motion layer: translateY(28px) → 0,
  * opacity 0 → 1, .9–1s cubic-bezier(.2,.7,.2,1); media scale 1.08 → 1 at 1.4s.
+ * Cascade via `--reveal-delay` (inline style per element).
  */
-.reveal {
+.reveal-ready .reveal {
   opacity: 0;
   transform: translate3d(0, 28px, 0);
   transition:
@@ -78,22 +81,22 @@ body {
   will-change: opacity, transform;
 }
 
-.reveal.is-revealed {
+.reveal-ready .reveal.is-revealed {
   opacity: 1;
   transform: none;
 }
 
-.reveal-media {
+.reveal-ready .reveal-media {
   overflow: hidden;
 }
 
-.reveal-media > img {
+.reveal-ready .reveal-media > img {
   transform: scale(1.08);
   transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.is-revealed .reveal-media > img,
-.reveal-media.is-revealed > img {
+.reveal-ready .is-revealed .reveal-media > img,
+.reveal-ready .reveal-media.is-revealed > img {
   transform: none;
 }
 

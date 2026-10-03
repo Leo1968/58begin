@@ -1,8 +1,9 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { PageShell } from "@/components/PageShell";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useSectionTracking } from "@/hooks/useSectionTracking";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLangStore } from "@/stores/lang";
 import { getSiteContent } from "@/content";
 import { track } from "@/utils/analytics";
@@ -48,8 +49,12 @@ export default function Home() {
     }, 0);
   }, [location.hash]);
 
+  const revealRoot = useRef<HTMLDivElement>(null);
+  useScrollReveal(revealRoot);
+
   return (
     <PageShell activeSectionId={active}>
+      <div ref={revealRoot}>
       <HeroSection hero={content.hero} metrics={content.metrics} trustBadges={content.trustBadges} />
       <AboutSection about={content.about} />
       <CultureSection culture={content.culture} />
@@ -59,6 +64,7 @@ export default function Home() {
       <ToolsSection tools={content.tools} />
       <ContactSection contact={content.contact} lang={lang} />
       <ClosingCtaSection closingCta={content.closingCta} />
+      </div>
     </PageShell>
   );
 }

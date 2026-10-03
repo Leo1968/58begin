@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { track } from "@/utils/analytics";
@@ -10,13 +11,21 @@ export function ClosingCtaSection({
   return (
     <div className="bg-header-bg text-header-fg">
       <Container className="py-20 text-center sm:py-28">
-        <h2 className="mx-auto max-w-[880px] font-display text-[clamp(36px,5.5vw,64px)] font-extrabold leading-[1.05] tracking-[-0.02em]">
+        <h2
+          className="reveal mx-auto max-w-[880px] font-display text-[clamp(36px,5.5vw,64px)] font-extrabold leading-[1.05] tracking-[-0.02em]"
+        >
           {closingCta.title}
         </h2>
-        <p className="mx-auto mt-5 max-w-[560px] text-sm text-white/60 sm:text-base">
+        <p
+          className="reveal mx-auto mt-5 max-w-[560px] text-sm text-white/60 sm:text-base"
+          style={{ "--reveal-delay": "90ms" } as CSSProperties}
+        >
           {closingCta.subtitle}
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <div
+          className="reveal mt-9 flex flex-wrap items-center justify-center gap-3"
+          style={{ "--reveal-delay": "180ms" } as CSSProperties}
+        >
           <a
             href={closingCta.primaryCta.href}
             className="inline-flex items-center gap-2 rounded-full bg-bg px-6 py-3 text-sm font-semibold text-fg transition hover:bg-white/90"

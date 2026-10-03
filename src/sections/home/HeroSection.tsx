@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import type { Metric, SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { track } from "@/utils/analytics";
@@ -14,17 +15,26 @@ export function HeroSection({
 }) {
   return (
     <Container className="py-16 sm:py-24">
-      <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
+      <div className="reveal text-xs font-semibold uppercase tracking-[0.25em] text-muted">
         {hero.kicker}
       </div>
-      <h1 className="mt-4 max-w-[900px] font-display text-[clamp(48px,7.5vw,88px)] font-extrabold leading-[1.02] tracking-[-0.03em] text-fg">
+      <h1
+        className="reveal mt-4 max-w-[900px] font-display text-[clamp(48px,7.5vw,88px)] font-extrabold leading-[1.02] tracking-[-0.03em] text-fg"
+        style={{ "--reveal-delay": "60ms" } as CSSProperties}
+      >
         {hero.title}
       </h1>
-      <p className="mt-6 max-w-[720px] text-base leading-relaxed text-muted sm:text-lg">
+      <p
+        className="reveal mt-6 max-w-[720px] text-base leading-relaxed text-muted sm:text-lg"
+        style={{ "--reveal-delay": "120ms" } as CSSProperties}
+      >
         {hero.subtitle}
       </p>
 
-      <div className="mt-9 flex flex-wrap items-center gap-3">
+      <div
+        className="reveal mt-9 flex flex-wrap items-center gap-3"
+        style={{ "--reveal-delay": "180ms" } as CSSProperties}
+      >
         <a
           href={hero.primaryCta.href}
           className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-semibold text-bg transition hover:bg-fg/90 active:bg-fg/85"
@@ -64,7 +74,10 @@ export function HeroSection({
         </a>
       </div>
 
-      <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-6">
+      <div
+        className="reveal mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-6"
+        style={{ "--reveal-delay": "240ms" } as CSSProperties}
+      >
         {trustBadges.map((b) => (
           <div key={b.label}>
             <div className="text-sm font-semibold text-fg">{b.label}</div>
@@ -74,10 +87,11 @@ export function HeroSection({
       </div>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-3">
-        {metrics.map((m) => (
+        {metrics.map((m, i) => (
           <div
             key={m.label}
-            className="rounded-none border-[3px] border-fg bg-card px-5 py-4 shadow-[6px_6px_0_0_rgb(var(--fg))]"
+            className="reveal rounded-none border-[3px] border-fg bg-card px-5 py-4 shadow-[6px_6px_0_0_rgb(var(--fg))]"
+            style={{ "--reveal-delay": `${300 + i * 90}ms` } as CSSProperties}
           >
             <div className="text-xs text-muted">{m.label}</div>
             <div className="mt-2 font-accent text-3xl leading-none text-fg">

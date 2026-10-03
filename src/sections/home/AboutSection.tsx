@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { SiteContent } from "@/content/types";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -9,7 +10,10 @@ export function AboutSection({ about }: { about: SiteContent["about"] }) {
         <SectionHeading id="about" title={about.title} />
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
           <div className="max-w-[760px]">
-            <div className="grid gap-8 sm:grid-cols-2">
+            <div
+              className="reveal grid gap-8 sm:grid-cols-2"
+              style={{ "--reveal-delay": "60ms" } as CSSProperties}
+            >
               <div>
                 <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
                   {about.mission.title}
@@ -33,7 +37,10 @@ export function AboutSection({ about }: { about: SiteContent["about"] }) {
               </p>
             ))}
           </div>
-          <div className="flex flex-wrap content-start gap-2 lg:flex-col">
+          <div
+            className="reveal flex flex-wrap content-start gap-2 lg:flex-col"
+            style={{ "--reveal-delay": "180ms" } as CSSProperties}
+          >
             {about.highlights.map((h) => (
               <div
                 key={h}

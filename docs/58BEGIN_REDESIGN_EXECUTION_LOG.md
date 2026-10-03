@@ -213,3 +213,61 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Next-stage recommendation
 
 进入 P4（子页面套新视觉系统）。
+
+---
+
+## P4 — Secondary Pages（2026-10-03）
+
+### Changed files
+
+| 文件 | 变更 |
+|---|---|
+| `src/pages/Posts.tsx` | 巨标题 + `CONTENT HUB`/内容中心 eyebrow；标签筛选改 chip 语法（激活=黑实心药丸，未激活=发丝线）；文章卡方角化 + 标题右箭头（hover 右移）+ 标签徽章改弱底药丸 |
+| `src/pages/PostDetail.tsx` | 日期改为大写字距 eyebrow；h1/h2 巨字阶加粗；blockquote 改左墨线 + 2% 洗色；TOC 侧栏方角化；逻辑（TOC 提取/复制链接/markdown 渲染）零改动 |
+| `src/pages/Privacy.tsx` | eyebrow + 巨标题 + h2 加粗 |
+| `src/pages/NotFound.tsx` | Silkscreen "404" 装饰标记 + 巨标题 + 黑色药丸返回 CTA（主按钮语法统一） |
+
+内容模型/URL/路由/prose 数据流零改动（符合 P4 约束）。
+
+### Tests executed
+`npm run check` ✅ / `npm test` ✅（11）/ `npm run build` ✅ / 15 张截图零溢出。
+
+### Visual evidence
+`tools/reference/p4/p4-pages-posts-desktop.png`（chip 筛选 + 方角卡 + 深色三明治）；其余见 `tools/reference/p4/`。
+
+### Gate: **PASS**（M4：全站四路由风格统一）
+
+---
+
+## P5 — Motion & Micro-interaction（2026-10-03）
+
+### Changed files
+
+| 文件 | 变更 |
+|---|---|
+| `src/index.css` | reveal 基元改为**渐进增强**：隐藏态门控于 `.reveal-ready`（JS 挂载后才生效），无 JS 环境内容直接可见；`--reveal-delay` 级联变量；reduced-motion 全量降级保留 |
+| `src/hooks/useScrollReveal.ts` | **新增**：IO 一次性 reveal（threshold 0.15 + rootMargin -8%），`is-revealed` 单向添加后 unobserve |
+| `src/hooks/useScrollReveal.test.tsx` | **新增**：IO mock 双用例（armed+observed；intersect 后单元素 reveal） |
+| `src/pages/Home.tsx` | 挂载 reveal root（useRef + hook） |
+| Hero/Featured/Products/Tools/About/Culture/Content/Contact/ClosingCta | 关键块挂 `.reveal` + `--reveal-delay` 级联（90ms 步进；指标卡 300ms 起步） |
+| `src/components/Card.tsx` | 透传 `style`（级联延迟需要） |
+| `src/components/Modal.tsx` | 清理死类 `animate-in fade-in zoom-in-95`（tailwindcss-animate 未安装，本就无效）；方角化；**新增 Escape 关闭**（Gate 3 要求；modal.spec 断言不受影响） |
+
+按钮 hover 反转/箭头位移（P2/P3 已随变体落地）与 marquee（P2）在本阶段联调确认。
+
+### Intentional omission（如实记录）
+
+- **Hero 桌面视差未实现**：参考站的视差作用于其大幅 hero 摄影媒体；58begin Hero 为纯排版（无媒体资产），视差无作用对象。引入假媒体违反"内容原创"边界，故省略——属设计判断而非遗漏。
+
+### Tests executed
+
+- `npm run check` ✅ / `npm test` ✅（6 files / 13 tests）/ `npm run build` ✅ / lint 持平既有基线
+- e2e chromium+webkit：✅ 4 passed（modal Escape 改动后 Modal 开合用例仍绿）
+- 15 张截图零溢出；`tools/reference/p5/`
+- **reduced-motion 专项**（Playwright `reducedMotion: 'reduce'`）：marquee `animationName = none` ✓；全部 `.reveal` 元素 `opacity = 1` ✓
+
+### Gate 3（动效与无障碍相关项）: **PASS**（reduced-motion/Escape/焦点样式部分；全矩阵在 P6 收口）
+
+### Next-stage recommendation
+
+进入 P6（全量 QA + Gate 文档收口）。
