@@ -20,7 +20,7 @@ const VIEWPORTS = [
 const PAGES = [
   { name: "home", path: "/" },
   { name: "posts", path: "/posts" },
-  { name: "post-detail", path: "/posts/start-with-positioning" },
+  { name: "post-detail", path: "/posts/clinical-need-to-product" },
   { name: "privacy", path: "/privacy" },
   { name: "not-found", path: "/no-such-page-404-check" },
 ];

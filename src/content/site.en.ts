@@ -201,27 +201,37 @@ export const siteEn: SiteContent = {
     secondaryCta: { text: "Read the latest posts", href: "/posts" }
   },
   posts: {
-    title: "Content",
+    title: "Medical Device Innovation Knowledge Base",
     items: [
       {
-        slug: "start-with-positioning",
-        title: "Start with a one-line positioning: let users understand you in 10 seconds",
+        slug: "clinical-need-to-product",
+        title: "From clinical need to medical device product: how innovation lands",
         excerpt:
-          "Positioning is not a slogan. It's your “default option” in the mind of a specific audience. This article gives you a copy-ready structure and a self-checklist.",
-        date: "2026-06-06",
-        readTime: "6 min",
-        tags: ["Positioning", "Messaging"],
-        body: `## Why a one-line positioning drives conversion\n\nWhen users land on your homepage for the first time, they won't “patiently understand you”. They will quickly decide: are you what I need?\n\n## One-line positioning structure\n\n> I help {a certain group of people}, use {a method}, in {a context} to achieve {a measurable result}.\n\n## Closing\n\nWrite your one-line positioning, then ask 3 target users to repeat it back to you. Check whether what they repeat is consistent.`
-      },
-      {
-        slug: "content-asset-system",
-        title: "Content as assets: turn one output into long-term compounding",
-        excerpt:
-          "The value of content isn't just today's views. It's whether it can be searched, reused, and recombined—eventually becoming a sustainable entry point for products.",
+          "Starting from clinical pain points and user needs, this article breaks down product definition, technical route, R&D verification, and product landing — building the complete path from Clinical Need → Product Definition → Engineering → Product.",
         date: "2026-06-06",
         readTime: "8 min",
-        tags: ["Content", "Growth"],
-        body: `## Three levels of content assets\n\n- Instant content: peaks at publish time\n- Searchable content: brings steady traffic via search\n- Composable content: becomes modules for courses, tools, or reports\n\n## A simple method\n\nArchive your past content by “problem”, not by “platform”.`
+        tags: ["Product Innovation", "Technical R&D"],
+        body: `## Start from clinical needs\n\nThe starting point of medical device innovation is not technology but clinical pain points. Common ways to identify real needs: clinical observation, clinician–engineer interviews, complaint analysis of existing products, and workflow gap studies.\n\n## Product definition\n\n- Target users and use scenarios\n- Core clinical value proposition\n- Key performance metrics and constraints\n\n## Technical route and R&D verification\n\nBuild the mapping of Clinical Need → Product Definition → Engineering → Product: translate clinical language into measurable engineering specs, then close the loop with design input/output reviews.\n\n## Product landing\n\nFrom bench prototype to registration sample, plan the ISO 13485 quality system and the full Design History File (DHF) early — late documentation is the most expensive rework.\n\n## Closing\n\nThe essence of the innovation path is the repeated alignment between clinical needs and engineering implementation — the earlier the alignment, the faster the landing.`
+      },
+      {
+        slug: "from-poc-to-registration",
+        title: "The medical device R&D process: from PoC to registration",
+        excerpt:
+          "Medical device innovation is not just technology development — it is the coordination of regulation, risk, quality, and engineering systems. This article maps product development, risk management, V&V, registration, and mass-production handoff.",
+        date: "2026-06-06",
+        readTime: "10 min",
+        tags: ["Technical R&D", "Regulatory & Registration"],
+        body: `## Proof of concept (PoC)\n\nVerify technical feasibility: bench prototype, key metric testing, and preliminary risk analysis decide whether the project enters engineering.\n\n## Design and development\n\n- Design input: translate requirements into an executable product specification\n- Design output: drawings, software, algorithms, and process documents\n- Verification & validation (V&V): bench testing, type testing, and clinical evaluation\n\n## Risk management\n\nHazard identification, risk control, and residual risk evaluation under ISO 14971 — risk management runs through the whole process, not as homework before registration.\n\n## Registration\n\nChoose the registration class (I/II/III), prepare the technical documentation, and pass the QMS audit; the registration strategy should be designed together with product definition.\n\n## Production handoff\n\nDesign transfer, process validation (PV), supplier management, and change control — the watershed between “can be built” and “built consistently”.`
+      },
+      {
+        slug: "device-market-analysis",
+        title: "Medical device market analysis: from industry trends to product opportunities",
+        excerpt:
+          "Market size, competitive landscape, technology trends, user needs, and competitor performance — a market research framework for medical devices to support project approval, R&D direction, and commercialization decisions.",
+        date: "2026-06-06",
+        readTime: "8 min",
+        tags: ["Market Insight", "Commercialization"],
+        body: `## Market size and structure\n\nCross-validate top-down and bottom-up estimates, and separate replacement demand from new demand — their growth logics are fundamentally different.\n\n## Competitive landscape\n\n- Leading vendors and market share distribution\n- Headroom for domestic substitution\n- Channel models and price bands\n\n## Technology trends\n\nSensor precision, AI-assisted decision-making, minimally invasive, and home-use directions — judge trends by technology maturity, not by launch-event density.\n\n## User needs\n\nA dual view of clinical and payer sides: who uses it, who decides, who pays — often three different people.\n\n## Product opportunities\n\nTranslate insight into project rationale: target segment, differentiation, and commercialization path — answering “why now, and why us” with data.`
       }
     ]
   },

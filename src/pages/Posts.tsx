@@ -41,15 +41,15 @@ export default function Posts() {
       <Container className="py-16 sm:py-24">
         <div className="max-w-[900px]">
           <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted">
-            {lang === "zh" ? "内容中心" : "Content hub"}
+            {lang === "zh" ? "知识库" : "Knowledge Base"}
           </div>
           <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-fg sm:text-5xl">
             {content.posts.title}
           </h1>
           <div className="mt-4 text-sm text-muted sm:text-base">
             {lang === "zh"
-              ? "长期增长来自可检索、可复用的内容资产。"
-              : "Long-term growth comes from searchable, reusable content assets."}
+              ? "聚焦医疗器械创新、研发与商业化，持续沉淀专业知识与行业洞察。"
+              : "Focused on medical device innovation, R&D, and commercialization — continuously building domain knowledge and industry insight."}
           </div>
 
           {allTags.length ? (
