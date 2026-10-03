@@ -1,6 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
 import type { SiteContent } from "@/content/types";
-import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TrackedLink } from "@/components/TrackedLink";
@@ -12,26 +10,29 @@ export function ProductsSection({
   products: SiteContent["products"];
 }) {
   return (
-    <Container className="py-14">
+    <Container className="py-16 sm:py-24">
       <SectionHeading id="products" title={products.title} />
-      <div className="mt-10 grid gap-10">
+      <div className="mt-10 grid gap-12">
         {products.groups.map((g) => (
           <div key={g.id}>
-            <div className="font-display text-2xl font-semibold tracking-tight text-fg">
+            <div className="font-display text-xl font-bold tracking-tight text-fg sm:text-2xl">
               {g.title}
             </div>
-            <div className="mt-4 grid gap-4 lg:grid-cols-3">
+            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {g.items.map((it) => (
-                <Card key={it.id}>
+                <div
+                  key={it.id}
+                  className="flex flex-col rounded-[20px] border border-border bg-card p-6 transition hover:bg-surface-4"
+                >
                   <div className="flex items-start justify-between gap-3">
                     <div className="text-lg font-semibold text-fg">{it.title}</div>
                     {it.tag ? (
-                      <span className="rounded-full border border-border bg-bg px-2 py-0.5 text-[11px] text-muted">
+                      <span className="shrink-0 rounded-full bg-surface-3 px-2.5 py-1 text-[11px] font-medium text-fg/80">
                         {it.tag}
                       </span>
                     ) : null}
                   </div>
-                  <div className="mt-2 text-sm leading-relaxed text-muted">
+                  <div className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                     {it.description}
                   </div>
                   <div className="mt-5">
@@ -49,15 +50,20 @@ export function ProductsSection({
                           props: { product_id: it.id, product_name: it.title }
                         })
                       }
-                      className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-fg hover:bg-fg/5"
+                      className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
                       target={it.ctaHref.startsWith("#") ? "_self" : "_blank"}
                       rel={it.ctaHref.startsWith("#") ? undefined : "noopener noreferrer"}
                     >
                       {it.ctaText}
-                      <ArrowUpRight className="h-4 w-4 text-muted" />
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-200 group-hover:translate-x-0.5"
+                      >
+                        →
+                      </span>
                     </TrackedLink>
                   </div>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
@@ -66,4 +72,3 @@ export function ProductsSection({
     </Container>
   );
 }
-

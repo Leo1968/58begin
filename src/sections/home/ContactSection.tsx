@@ -33,11 +33,11 @@ export function ContactSection({
   };
 
   return (
-    <Container className="py-14">
+    <Container className="py-16 sm:py-24">
       <SectionHeading id="contact" title={contact.title} subtitle={contact.description} />
       <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_440px] lg:items-start">
         <div className="grid gap-4">
-          <Card>
+          <Card shape="square" className="p-6">
             <div className="text-xs text-muted">Email</div>
             <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
               <div className="text-sm font-medium text-fg">{contact.email}</div>
@@ -60,7 +60,7 @@ export function ContactSection({
             </div>
           </Card>
 
-          <Card>
+          <Card shape="square" className="p-6">
             <div className="text-xs text-muted">{contact.wechatLabel}</div>
             <div className="mt-3 text-sm text-muted">
               {lang === "zh"

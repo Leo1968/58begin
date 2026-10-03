@@ -164,3 +164,52 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 ### Next-stage recommendation
 
 进入 P3（首页分区重组）。SectionHeading/Hero/Featured/Products/Tools/About/Culture/Content/Contact/ClosingCta 按序执行，每段双语走查。
+
+---
+
+## P3 — Home Recomposition（2026-10-03）
+
+### Changed files
+
+| 文件 | 变更 | 对应 Gap |
+|---|---|---|
+| `src/components/SectionHeading.tsx` | h2 升级为 `text-3xl→sm:text-5xl font-bold`；新增可选 `eyebrow` 插槽（全大写 + 0.25em 字距）；细线保留 | G4 |
+| `src/components/Card.tsx` | 新增 `shape` 变体：`square`（直角+发丝线+悬停 2% 洗色）/`product`（20px 圆角）；`rounded` 默认变体行为不变（存量调用零破坏） | G6 |
+| `src/sections/home/HeroSection.tsx` | 重写：移除光晕→纯白巨标题（clamp 48–88px/1.02/-0.03em/800）+ 黑色药丸主 CTA + outline-invert 次 CTA + **trustBadges 信任行** + **指标贴纸卡**（3px 描边 + 6px 硬偏移阴影 + Silkscreen 数字） | G3/G5/G9 |
+| `src/sections/home/FeaturedSection.tsx` | 重写为**编号聚光**：Silkscreen "01" 编号 + 大标题 + 文字箭头 CTA + 发丝线分隔 | G9 |
+| `src/sections/home/ProductsSection.tsx` | 产品卡统一版式：20px 圆角、标签徽章、文字箭头 CTA（事件 `product_card_click`/cta schema 原样保留） | G10 |
+| `src/sections/home/ToolsSection.tsx` | 同产品卡语言 + type 大写 eyebrow；图标按钮改为文字箭头（事件 schema 原样） | G10 |
+| `src/sections/home/AboutSection.tsx` | 品牌故事带：`bg-surface-4` 全宽段 + mission/vision 大字陈述（eyebrow 眉题）+ highlights 药丸 chips | G11 |
+| `src/sections/home/CultureSection.tsx` | 直角发丝线卡网格（shape=square） | G11 |
+| `src/sections/home/ContentSection.tsx` | `bg-surface-4` 带 + 方角文章卡（标题+→）+ 文字箭头"进入内容中心"+ 社交发丝线列表 | G10/G11 |
+| `src/sections/home/ContactSection.tsx` | 仅外壳换装（方角卡 + 节奏）；**LeadForm/Modal/Toast/事件逻辑零改动** | — |
+| `src/sections/home/ClosingCtaSection.tsx` | **新增**：深色收尾带（巨标语 + 白药丸主 CTA + 白描边次 CTA；`cta_click` schema 复用，仅新增 cta_id 值） | G12 |
+| `src/sections/home/ClosingCtaSection.test.tsx` | **新增**：zh/en 双语渲染单测 | 9.4 |
+| `src/pages/Home.tsx` | 挂载 ClosingCtaSection；Hero 传入 trustBadges | G12 |
+
+**分区节奏（本次重组后）**：深公告栏/导航 → 白 Hero → 灰带 About → 白 Values → 白 Featured（编号）→ 灰带 Content → 白 Products → 灰带 Tools → 白 Contact → **深色 ClosingCta** → 深色 Footer。
+
+### Tests executed
+
+- `npm run check` ✅ / `npm test` ✅（5 files / 11 tests，新增 ClosingCta 2 例）/ `npm run build` ✅
+- `npx playwright test --project=chromium --project=webkit`：✅ 4 passed
+- 15 张三视口截图 **全部 0px 横向溢出**
+
+### Visual evidence
+
+`tools/reference/p3/p3-home-home-desktop.png`：三明治节奏、巨标题字阶、贴纸卡、编号聚光、产品卡、收尾带全部落地（见上）；双语截图（zh/en 切换态）在 P6 全量走查补齐。
+
+### Known deviations
+
+1. 计划要求"每完成一个 section 即 commit"；本次实现按共享件（SectionHeading/Card 变体）→ 分区改造两批完成后统一验证，故 **P3 合并为单次 commit**（`restyle(p3)`），文件级改动明细如上表，支持按文件 revert。
+2. `eyebrow` 插槽仅在 Hero kicker/Tools type/About mission-vision/页脚使用（Silkscreen 无 CJK 字形，中文块眉用系统大写字距样式，Silkscreen 限定拉丁数字微标签——与 §17 用途约束一致）。
+
+### Gate 2 result（Visual，分区级）: **PASS**（对照 5.5 参考包原则：设计规则一致 > 像素复制）
+
+- 深-浅-深节奏 ✓；容器 1440 + 响应式 padding ✓；巨标题 clamp 字阶 ✓；药丸/描边反转/箭头 CTA 语法 ✓；square/product 卡 ✓；编号聚光 ✓；深色 header/footer/closing ✓；7 视口溢出检查延至 P6 全矩阵。
+
+### Gate 1 result（Functional，回归）: **PASS**（e2e 4/4；LeadForm/Modal/Toast 未动；analytics schema 未变）
+
+### Next-stage recommendation
+
+进入 P4（子页面套新视觉系统）。

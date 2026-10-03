@@ -14,6 +14,7 @@ import { ContentSection } from "@/sections/home/ContentSection";
 import { ProductsSection } from "@/sections/home/ProductsSection";
 import { ToolsSection } from "@/sections/home/ToolsSection";
 import { ContactSection } from "@/sections/home/ContactSection";
+import { ClosingCtaSection } from "@/sections/home/ClosingCtaSection";
 
 export default function Home() {
   const { lang } = useLangStore();
@@ -49,7 +50,7 @@ export default function Home() {
 
   return (
     <PageShell activeSectionId={active}>
-      <HeroSection hero={content.hero} metrics={content.metrics} />
+      <HeroSection hero={content.hero} metrics={content.metrics} trustBadges={content.trustBadges} />
       <AboutSection about={content.about} />
       <CultureSection culture={content.culture} />
       <FeaturedSection featured={content.featured} />
@@ -57,6 +58,7 @@ export default function Home() {
       <ProductsSection products={content.products} />
       <ToolsSection tools={content.tools} />
       <ContactSection contact={content.contact} lang={lang} />
+      <ClosingCtaSection closingCta={content.closingCta} />
     </PageShell>
   );
 }

@@ -5,11 +5,11 @@ import { Card } from "@/components/Card";
 
 export function CultureSection({ culture }: { culture: SiteContent["culture"] }) {
   return (
-    <Container className="py-14">
+    <Container className="py-16 sm:py-24">
       <SectionHeading id="culture" title={culture.title} />
-      <div className="mt-10 grid gap-4 lg:grid-cols-3">
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {culture.items.map((it) => (
-          <Card key={it.title}>
+          <Card key={it.title} shape="square" className="p-6">
             <div className="text-lg font-semibold text-fg">{it.title}</div>
             <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-muted">
               {it.description}
@@ -20,4 +20,3 @@ export function CultureSection({ culture }: { culture: SiteContent["culture"] })
     </Container>
   );
 }
-

@@ -1,6 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
 import type { SiteContent } from "@/content/types";
-import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TrackedLink } from "@/components/TrackedLink";
@@ -11,16 +9,29 @@ export function FeaturedSection({
   featured: SiteContent["featured"];
 }) {
   return (
-    <Container className="py-14">
+    <Container className="py-16 sm:py-24">
       <SectionHeading id="featured" title={featured.title} />
-      <div className="mt-10 grid gap-4 lg:grid-cols-3">
-        {featured.items.map((it) => (
-          <Card key={it.id}>
-            <div className="text-lg font-semibold text-fg">{it.title}</div>
-            <div className="mt-2 text-sm leading-relaxed text-muted">
-              {it.description}
+      <div>
+        {featured.items.map((it, i) => (
+          <div
+            key={it.id}
+            className="grid gap-6 border-t border-border py-10 lg:grid-cols-[140px_1fr_auto] lg:items-start"
+          >
+            <div
+              aria-hidden="true"
+              className="font-accent text-[clamp(28px,6vw,40px)] leading-none text-fg"
+            >
+              {String(i + 1).padStart(2, "0")}
             </div>
-            <div className="mt-5">
+            <div className="max-w-[720px]">
+              <div className="font-display text-2xl font-bold tracking-tight text-fg">
+                {it.title}
+              </div>
+              <div className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                {it.description}
+              </div>
+            </div>
+            <div className="lg:pt-2">
               <TrackedLink
                 href={it.ctaHref}
                 tracking={{
@@ -29,16 +40,20 @@ export function FeaturedSection({
                   text: it.ctaText,
                   section: "featured"
                 }}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2 text-sm font-medium text-fg hover:bg-fg/5"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
               >
                 {it.ctaText}
-                <ArrowUpRight className="h-4 w-4 text-muted" />
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-200 group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
               </TrackedLink>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </Container>
   );
 }
-
