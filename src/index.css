@@ -63,6 +63,18 @@ body {
   background: rgba(var(--accent), 0.18);
 }
 
+/* announcement bar message crossfade (reference: slider grammar) */
+@keyframes announce-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /*
  * Scroll-reveal primitives (progressive enhancement: the hidden state only
  * applies once JS mounts and adds `.reveal-ready` to the page root, so
