@@ -195,6 +195,10 @@ export const siteEn: SiteContent = {
       "If you'd like to inquire about courses or discuss partnerships, feel free to reach out via the channels below.",
     email: "hello@58begin.com",
     wechatLabel: "Scan to add WeChat",
+    wechatQr: {
+      src: "/wechat-qr.png",
+      alt: "WeChat QR code: scan to add contact"
+    },
     form: {
       title: "Partnership / booking form",
       nameLabel: "Name",

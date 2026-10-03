@@ -103,6 +103,7 @@ export type SiteContent = {
     description: string;
     email: string;
     wechatLabel: string;
+    wechatQr?: { src: string; alt: string };
     form: {
       title: string;
       nameLabel: string;

@@ -186,6 +186,10 @@ export const siteZh: SiteContent = {
     description: "如果你想咨询学习或洽谈合作，欢迎通过以下方式联系我。",
     email: "hello@58begin.com",
     wechatLabel: "扫码添加微信",
+    wechatQr: {
+      src: "/wechat-qr.png",
+      alt: "微信二维码：扫码添加好友"
+    },
     form: {
       title: "合作/预约表单",
       nameLabel: "姓名",

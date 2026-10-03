@@ -62,11 +62,30 @@ export function ContactSection({
 
           <Card shape="square" className="reveal p-6" style={{ "--reveal-delay": "90ms" } as CSSProperties}>
             <div className="text-xs text-muted">{contact.wechatLabel}</div>
-            <div className="mt-3 text-sm text-muted">
-              {lang === "zh"
-                ? "如需展示二维码，请将二维码图片放到 public/ 目录并在内容配置中填写链接。"
-                : "To show a QR code, place an image under public/ and set its URL in content config."}
-            </div>
+            {contact.wechatQr ? (
+              <div className="mt-4 flex flex-wrap items-center gap-6">
+                <img
+                  src={contact.wechatQr.src}
+                  alt={contact.wechatQr.alt}
+                  width={600}
+                  height={568}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-40 w-40 border border-border"
+                />
+                <div className="text-sm leading-relaxed text-muted">
+                  {lang === "zh"
+                    ? "微信扫码添加，或点击下方按钮放大查看。"
+                    : "Scan with WeChat, or open the dialog below to zoom in."}
+                </div>
+              </div>
+            ) : (
+              <div className="mt-3 text-sm text-muted">
+                {lang === "zh"
+                  ? "如需展示二维码，请将二维码图片放到 public/ 目录并在内容配置中填写链接。"
+                  : "To show a QR code, place an image under public/ and set its URL in content config."}
+              </div>
+            )}
             <div className="mt-5">
               <button
                 onClick={() => {
@@ -87,11 +106,21 @@ export function ContactSection({
       </div>
 
       <Modal open={qrOpen} title={contact.wechatLabel} onClose={() => setQrOpen(false)}>
-        <div className="rounded-2xl border border-border bg-card p-5 text-sm text-muted">
-          {lang === "zh"
-            ? "此处预留二维码展示位：请在 public/ 放置二维码图片并在内容配置中填入链接后替换为 <img>。"
-            : "Reserved area for a WeChat QR image. Put the image under public/ and wire it in the content config."}
-        </div>
+        {contact.wechatQr ? (
+          <img
+            src={contact.wechatQr.src}
+            alt={contact.wechatQr.alt}
+            width={600}
+            height={568}
+            className="mx-auto w-full max-w-[320px] border border-border"
+          />
+        ) : (
+          <div className="rounded-none border border-border bg-card p-5 text-sm text-muted">
+            {lang === "zh"
+              ? "此处预留二维码展示位：请在 public/ 放置二维码图片并在内容配置中填入链接后替换为 <img>。"
+              : "Reserved area for a WeChat QR image. Put the image under public/ and wire it in the content config."}
+          </div>
+        )}
       </Modal>
 
       <Toast open={toastOpen}>
