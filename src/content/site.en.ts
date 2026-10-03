@@ -98,6 +98,20 @@ export const siteEn: SiteContent = {
         ],
         ctaText: "View on GitHub",
         ctaHref: "https://github.com/Leo1968/Falco"
+      },
+      {
+        id: "iap",
+        title: "IAP",
+        description:
+          "A complete embedded hardware design built around an LQFP64 MCU, integrating a communication module, audio unit, and multiple external interfaces. Shown as a 3D render preview.",
+        images: [
+          {
+            src: "/iap-pcb-3d.png",
+            alt: "IAP hardware 3D render: PCB design with LQFP64 MCU and peripheral interfaces",
+            width: 1280,
+            height: 845
+          }
+        ]
       }
     ]
   },

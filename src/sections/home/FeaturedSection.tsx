@@ -35,26 +35,28 @@ export function FeaturedSection({
                   {it.description}
                 </div>
               </div>
-              <div className="lg:pt-2">
-                <TrackedLink
-                  href={it.ctaHref}
-                  tracking={{
-                    type: "cta",
-                    id: `featured_${it.id}`,
-                    text: it.ctaText,
-                    section: "featured"
-                  }}
-                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
-                >
-                  {it.ctaText}
-                  <span
-                    aria-hidden="true"
-                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+              {it.ctaText && it.ctaHref ? (
+                <div className="lg:pt-2">
+                  <TrackedLink
+                    href={it.ctaHref}
+                    tracking={{
+                      type: "cta",
+                      id: `featured_${it.id}`,
+                      text: it.ctaText,
+                      section: "featured"
+                    }}
+                    className="group inline-flex items-center gap-1.5 text-sm font-medium text-fg"
                   >
-                    →
-                  </span>
-                </TrackedLink>
-              </div>
+                    {it.ctaText}
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-200 group-hover:translate-x-0.5"
+                    >
+                      →
+                    </span>
+                  </TrackedLink>
+                </div>
+              ) : null}
             </div>
 
             {it.images?.length ? (

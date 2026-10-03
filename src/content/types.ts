@@ -18,8 +18,8 @@ export type FeaturedItem = {
   title: string;
   description: string;
   images?: { src: string; alt: string; width: number; height: number }[];
-  ctaText: string;
-  ctaHref: string;
+  ctaText?: string;
+  ctaHref?: string;
 };
 
 export type ProductItem = {

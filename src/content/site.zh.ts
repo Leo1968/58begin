@@ -93,6 +93,20 @@ export const siteZh: SiteContent = {
         ],
         ctaText: "在 GitHub 查看",
         ctaHref: "https://github.com/Leo1968/Falco"
+      },
+      {
+        id: "iap",
+        title: "IAP",
+        description:
+          "一套完整的嵌入式硬件设计：以 LQFP64 主控为核心，集成通信模块、音频单元与多路对外接口。图为 3D 渲染预览。",
+        images: [
+          {
+            src: "/iap-pcb-3d.png",
+            alt: "IAP 硬件 3D 渲染：LQFP64 主控与外设接口的 PCB 设计",
+            width: 1280,
+            height: 845
+          }
+        ]
       }
     ]
   },
