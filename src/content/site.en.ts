@@ -52,9 +52,9 @@ export const siteEn: SiteContent = {
       body: "To become the world's leading AI-powered engine accelerating medical device innovation, regulatory excellence, and commercialization."
     },
     paragraphs: [
-      "This is the official site for 58begin. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together.",
-      "I believe: what seems impossible to the world may simply be something you have never tried to do."
+      "This is the official site of Skywalker Labs. Here you can quickly learn who I am, what I do, what problems I can help you solve, and how to start working together."
     ],
+    belief: "I believe: what seems impossible to the world may simply be something you have never tried to do.",
     highlights: [
       "Hardware positioning",
       "Break down product requirements",

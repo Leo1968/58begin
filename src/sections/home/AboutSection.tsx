@@ -36,6 +36,9 @@ export function AboutSection({ about }: { about: SiteContent["about"] }) {
                 {p}
               </p>
             ))}
+            <p className="mt-6 text-lg font-medium leading-relaxed text-fg">
+              {about.belief}
+            </p>
           </div>
           <div
             className="reveal flex flex-wrap content-start gap-2 lg:flex-col"

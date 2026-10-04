@@ -74,6 +74,8 @@ export type SiteContent = {
     mission: { title: string; body: string };
     vision: { title: string; body: string };
     paragraphs: string[];
+    /** belief statement, rendered with the same emphasis as mission/vision */
+    belief: string;
     highlights: string[];
   };
   featured: {
