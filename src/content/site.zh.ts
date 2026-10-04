@@ -70,13 +70,13 @@ export const siteZh: SiteContent = {
             src: "/falco-optimizer-dark.png",
             alt: "Falco 深色主题主界面：健康评分、硬件监控与一键优化",
             width: 1280,
-            height: 952
+            height: 972
           },
           {
             src: "/falco-optimizer-light.png",
             alt: "Falco 浅色主题主界面：世界名画画廊组件",
             width: 1280,
-            height: 958
+            height: 972
           }
         ],
         ctaText: "在 GitHub 查看",

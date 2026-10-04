@@ -75,13 +75,13 @@ export const siteEn: SiteContent = {
             src: "/falco-optimizer-dark.png",
             alt: "Falco dark theme: health score, hardware monitoring, and one-click tuning",
             width: 1280,
-            height: 952
+            height: 972
           },
           {
             src: "/falco-optimizer-light.png",
             alt: "Falco light theme: world art gallery widget",
             width: 1280,
-            height: 958
+            height: 972
           }
         ],
         ctaText: "View on GitHub",
