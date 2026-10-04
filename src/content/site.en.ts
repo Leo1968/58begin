@@ -97,7 +97,7 @@ export const siteEn: SiteContent = {
             src: "/iap-pcb-3d.png",
             alt: "IAP hardware 3D render: PCB design with LQFP64 MCU and peripheral interfaces",
             width: 1233,
-            height: 687
+            height: 845
           }
         ]
       }

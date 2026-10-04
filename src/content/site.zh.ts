@@ -92,7 +92,7 @@ export const siteZh: SiteContent = {
             src: "/iap-pcb-3d.png",
             alt: "IAP 硬件 3D 渲染：LQFP64 主控与外设接口的 PCB 设计",
             width: 1233,
-            height: 687
+            height: 845
           }
         ]
       }
