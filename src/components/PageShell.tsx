@@ -63,13 +63,8 @@ export function PageShell({
         </Container>
 
         <div className="border-t border-header-border">
-          <Container className="flex flex-col items-start justify-between gap-2 py-5 text-xs sm:flex-row sm:items-center">
+          <Container className="py-5 text-xs">
             <div>© {new Date().getFullYear()} {content.copyright}</div>
-            <div>
-              {lang === "zh"
-                ? "本网站内容支持持续更新与版本迭代。"
-                : "This site is continuously updated and iterated."}
-            </div>
           </Container>
         </div>
       </footer>
