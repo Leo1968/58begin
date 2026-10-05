@@ -341,3 +341,12 @@ grep -rliE "wozmerch|tools/vendor|tools/reference" dist/   # 空 = 构建产物�
 - **线上验证**：`/api/health` {"ok":true}；meta description 为新文案；zh 首页导航飞马 logo / 新公告栏文案 / X 真实链接 ×2 / 巨标题均在；页脚 © 2026 Skywalker Labs + 志存高远 tagline + 反白 logo 均在；/posts 200、favicon 200。
 - **回滚路径**（如需）：`npx wrangler rollback`（秒级回退到上一 Worker 版本）或 `git revert` 对应提交后重新本地部署。
 - **遗留**：① 恢复 push 自动部署需在 Cloudflare 面板创建 API Token（Edit Workers 模板）并 `gh secret set CLOUDFLARE_API_TOKEN`/`CLOUDFLARE_ACCOUNT_ID`；② 小红书/抖音/YouTube/B 站四个社交图标仍为占位链接；③ 远端存在分支 `update_worker_name_to_58begin-web`（来源待所有者确认）。
+
+---
+
+## 增量功能 — Workers AI 智能客服"小天"（2026-10-04）
+
+- **后端**：`/api/chat`（POST）→ Workers AI `@cf/zai-org/glm-4.7-flash`；系统提示词注入业务知识库/服务/联系方式；zod 校验；同 IP 10 次/60s 限流（per-isolate 尽力而为）；思维链剥离；V1.1 的 api 契约例外已由所有者批准（新增端点，`/api/lead` 不变）。
+- **前端**：`ChatWidget` 右下角气泡（贴纸风视觉、双语、快捷问题、Esc 关闭、AI_ERROR 时邮件兜底话术），挂载于 PageShell 全站可见。
+- **部署踩坑记录**：① `[ai]` 顶层绑定不传入 `[env.production]`，需在环境中显式声明；② qwen1.5 模型已于 2025-10 弃用，切换 GLM；③ GLM 返回 OpenAI chat.completion 结构且默认思维链，需解析 choices 并提高 max_tokens。
+- **验证**：线上真实中文回复 ✓；医疗法规问题护栏转人工 ✓；限流/校验单测 ✓；组件交互单测 ✓（全套 19 测试）。

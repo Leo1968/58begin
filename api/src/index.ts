@@ -1,5 +1,6 @@
 import type { Env } from "./types";
 import { handleLeadCreate } from "./controllers/leadController";
+import { handleChatCreate } from "./controllers/chatController";
 import { getRequestIp, json, parseAllowedOrigins, text } from "./utils/http";
 
 function withCors(request: Request, env: Env, response: Response): Response {
@@ -92,6 +93,11 @@ export default {
     if (request.method === "POST" && path === "/api/lead") {
       const ip = getRequestIp(request);
       const res = await handleLeadCreate(request, env, { ip });
+      return withCors(request, env, res);
+    }
+
+    if (request.method === "POST" && path === "/api/chat") {
+      const res = await handleChatCreate(request, env);
       return withCors(request, env, res);
     }
 

@@ -7,6 +7,7 @@ import { getSiteContent } from "@/content";
 import { Container } from "./Container";
 import { SiteNav } from "./SiteNav";
 import { AnnouncementTicker } from "./AnnouncementTicker";
+import { ChatWidget } from "./ChatWidget";
 
 export function PageShell({
   activeSectionId,
@@ -68,6 +69,8 @@ export function PageShell({
           </Container>
         </div>
       </footer>
+
+      <ChatWidget />
     </div>
   );
 }

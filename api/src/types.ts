@@ -22,6 +22,9 @@ export type LeadCreateResponse =
 export type Env = {
   DB: D1Database;
   ASSETS: Fetcher;
+  AI: {
+    run: (model: string, input: Record<string, unknown>) => Promise<{ response?: string }>;
+  };
   ALLOWED_ORIGINS?: string;
   RATE_LIMIT_WINDOW_SECONDS?: string;
   RATE_LIMIT_MAX_REQUESTS?: string;

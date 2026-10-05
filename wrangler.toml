@@ -2,6 +2,10 @@ name = "58begin-web"
 main = "api/src/index.ts"
 compatibility_date = "2026-06-06"
 
+[ai]
+remote = true
+binding = "AI"
+
 [assets]
 directory = "dist"
 binding = "ASSETS"
@@ -20,6 +24,9 @@ database_id = "06394828-3ff1-4dd7-9bcc-3e8c01566c75"
 
 [env.production]
 name = "58begin-web"
+
+[env.production.ai]
+binding = "AI"
 
 [env.production.vars]
 ALLOWED_ORIGINS = "https://58begin.com,https://www.58begin.com"
