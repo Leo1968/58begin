@@ -106,6 +106,7 @@ export const siteEn: SiteContent = {
   findMeOn: {
     title: "Find me here",
     items: [
+      { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/leoyang1968", icon: "💼", iconKey: "linkedin" },
       { id: "rednote", label: "RedNote", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
       { id: "douyin", label: "Douyin", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
       { id: "x", label: "X.com", href: "https://x.com/LeoYang87346355", icon: "🐦", iconKey: "x" },

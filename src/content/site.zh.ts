@@ -101,6 +101,7 @@ export const siteZh: SiteContent = {
   findMeOn: {
     title: "在这里找到我",
     items: [
+      { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/leoyang1968", icon: "💼", iconKey: "linkedin" },
       { id: "rednote", label: "小红书", href: "https://example.com", icon: "📕", iconKey: "xiaohongshu" },
       { id: "douyin", label: "抖音", href: "https://example.com", icon: "🎵", iconKey: "douyin" },
       { id: "x", label: "X.com", href: "https://x.com/LeoYang87346355", icon: "🐦", iconKey: "x" },
